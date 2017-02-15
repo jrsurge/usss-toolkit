@@ -1,0 +1,18 @@
+#N canvas 21 67 702 514 10;
+#X obj 34 126 usss.varispeed myvar;
+#X obj 36 -8 osc~ 220;
+#X obj 35 18 *~ 0.1;
+#X obj 34 332 dac~;
+#X obj 294 22 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 294 66 \; pd dsp \$1;
+#X text 260 161 A variable speed audio player accepts a sound file
+or can sample live input. negative numbers result in a reversed playback.
+Start and Endpoints can also be changed although this may effect the
+pitch.;
+#X connect 0 0 3 0;
+#X connect 0 1 3 1;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 2 0 0 1;
+#X connect 4 0 5 0;

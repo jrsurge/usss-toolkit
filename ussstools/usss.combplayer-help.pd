@@ -1,0 +1,40 @@
+#N canvas 102 276 843 381 10;
+#X obj -683 64 noise~;
+#X obj -683 212 *~ 0.1;
+#X obj -478 211 *~ 0.1;
+#X obj -683 248 dac~;
+#X obj -829 17 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg -829 61 \; pd dsp \$1;
+#X obj -682 97 usss.combplayer mycp1;
+#X text -456 79 This is a comb filter player: so long as your midi
+keyboard is connected you can play 10 simultaneous comb filters as
+notes;
+#X text -454 124 arguments: arg1 is the object name;
+#X text -456 153 coutamp sets the filter gain (dry or ring);
+#X text -456 175 cvolumne sets the output volume;
+#X obj -831 142 metro 500;
+#X obj -831 105 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj -831 180 random 70;
+#X obj -831 207 + 10;
+#X floatatom -771 106 5 0 0 0 - - -, f 5;
+#X text -437 140 comment;
+#X obj -831 238 makenote 64 100;
+#X obj -547 60 notein;
+#X connect 0 0 6 0;
+#X connect 0 0 6 1;
+#X connect 1 0 3 0;
+#X connect 2 0 3 1;
+#X connect 4 0 5 0;
+#X connect 6 0 1 0;
+#X connect 6 1 2 0;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 14 0;
+#X connect 14 0 17 0;
+#X connect 15 0 11 1;
+#X connect 17 0 6 2;
+#X connect 17 1 6 3;
+#X connect 18 0 6 2;
+#X connect 18 1 6 3;

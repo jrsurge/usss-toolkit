@@ -1,0 +1,23 @@
+#N canvas 1126 40 593 540 10;
+#X obj 11 281 usss.output myout;
+#X obj 10 98 usss.reson myres;
+#X msg 216 57 100 200 300 400 500 600 700 800 900 1000 1100 1200 1500
+2000 5000 8000;
+#X text 214 144 resonant filters can be made to produce a pitched 'resonant'
+sound when 'activated' by noise based sounds (like stones . balloons
+etc.);
+#X obj 9 21 noise~;
+#X obj 10 54 *~ 0.2;
+#X text 213 4 you can enter your own frequencies in a message box attached
+to the right inlet. The other two inlets are for audio left and audio
+right. You can enter up to 16 filter frequencies;
+#X msg 236 318 \; pd dsp \$1;
+#X obj 236 281 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X connect 1 0 0 0;
+#X connect 1 1 0 1;
+#X connect 2 0 1 2;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 5 0 1 1;
+#X connect 8 0 7 0;

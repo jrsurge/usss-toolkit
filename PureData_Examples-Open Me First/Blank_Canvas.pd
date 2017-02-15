@@ -1,0 +1,15 @@
+#N canvas 573 50 512 695 10;
+#X declare -path ../ussstools;
+#X declare -path E:/USSSTOOLSKIT/ussstools;
+#X obj 190 156 declare -path ../ussstools;
+#X text 13 26 READ ME:;
+#X text 14 48 Here is a blank canvas for you to experiemnt with audio
+file manipulation using the ussstools begin by creating a usss object
+of your choice and connecting the sfplayer to the inlet and the outlets
+to the usss.output. Then select a file using the player and let the
+fun begin!;
+#X obj 95 132 declare -path E:/USSSTOOLSKIT/ussstools;
+#X obj 53 414 usss.output myout;
+#X obj 54 206 usss.sfplay mysfp2;
+#X connect 5 0 4 0;
+#X connect 5 1 4 1;

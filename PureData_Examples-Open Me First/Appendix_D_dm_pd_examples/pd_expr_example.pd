@@ -1,0 +1,11 @@
+#N canvas 605 225 450 300 10;
+#X obj 95 128 expr sqrt( $f1 * $f1 + $f2 * $f2 );
+#X floatatom 95 91 5 0 0 0 - - -;
+#X floatatom 328 92 5 0 0 0 - - -;
+#X text 79 91 X;
+#X text 310 91 Y;
+#X floatatom 95 166 5 0 0 0 - - -;
+#X text 138 166 magnitude;
+#X connect 0 0 5 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 1;

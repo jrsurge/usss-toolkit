@@ -1,0 +1,19 @@
+#N canvas 254 235 648 451 10;
+#X declare -path ../ussstools;
+#X declare -path E:/USSSTOOLSKIT/ussstools;
+#X obj 334 15 declare -path ../ussstools;
+#X obj 57 229 usss.output myout;
+#X text 331 41 usss.phasorsynth myp1 sawtoothwave / pulsetrainwave
+/ squarewave / trianglewave;
+#X obj 57 23 notein;
+#X obj 57 61 pack 0 0;
+#X msg 130 33 64 100;
+#X msg 129 65 64 0;
+#X obj 57 138 usss.phasorsynth myp1 sawtoothwave;
+#X connect 3 0 4 0;
+#X connect 3 1 4 1;
+#X connect 4 0 7 0;
+#X connect 5 0 7 0;
+#X connect 6 0 7 0;
+#X connect 7 0 1 0;
+#X connect 7 1 1 1;

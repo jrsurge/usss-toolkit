@@ -1,0 +1,16 @@
+#N canvas 224 500 415 196 10;
+#X obj 19 65 usss.panner1 pan;
+#X obj 101 165 dac~;
+#X obj 18 17 osc~ 220;
+#X obj 302 14 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 302 62 \; pd dsp \$1;
+#X obj 51 138 *~ 0.5;
+#X obj 136 138 *~ 0.5;
+#X text 107 13 A Simple Panner for mono input;
+#X connect 0 0 5 0;
+#X connect 0 1 6 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 1;

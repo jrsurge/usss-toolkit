@@ -1,0 +1,91 @@
+#N canvas 228 82 1052 942 10;
+#X declare -path ../../ussstools;
+#X obj 378 8 usss.sfplay player;
+#X text 587 59 select an audio file using the "select file" and begin
+playback using the play toggle;
+#X text 239 862 Here the DSP is controlled and the output can be recorded
+as per the usss.output help file.;
+#X text 13 26 READ ME:;
+#X text 14 48 Here is a blank canvas for you to experiemnt with audio
+file manipulation using the ussstools begin by creating a usss object
+of your choice and connecting the sfplayer to the inlet and the outlets
+to the usss.output. Then select a file using the player and let the
+fun begin!;
+#X obj 703 143 declare -path ../../ussstools;
+#X obj 349 688 usss.output myout;
+#X obj 142 332 tabplay~ tab;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array tab 2.57088e+06 float 2;
+#X coords 0 1 2.57088e+06 -1 200 140 1;
+#X restore 730 329 graph;
+#X obj 709 245 soundfiler;
+#X msg 709 205 read -resize drumkit.wav tab;
+#X obj 118 196 key;
+#X obj 114 232 sel 32;
+#X msg 141 284 12000 40000;
+#X obj 351 523 usss.shapee myshap;
+#X obj 485 130 usss.granular myg;
+#X obj 659 582 *~ 0.1;
+#X obj 304 264 phasor~;
+#X obj 295 311 *~ 2;
+#X obj 306 362 -~ 1;
+#X floatatom 299 217 5 0 0 0 - - -;
+#X obj 277 174 hsl 128 15 0 10 0 0 empty empty empty -2 -8 0 10 -257985
+-1 -1 0 1;
+#X obj 60 583 usss.reverb myf;
+#X obj 62 394 metro 500;
+#X obj 62 356 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 57 431 counter 0 5;
+#X floatatom 55 456 5 0 0 0 - - -;
+#X obj 57 484 sel 2 4;
+#X obj 63 518 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 242 211 comment;
+#X msg 62 536 2;
+#X msg 131 534 6;
+#X obj 769 540 usss.varispeed vb2;
+#X obj 771 765 *~;
+#X obj 651 683 osc~;
+#X obj 900 761 *~;
+#X floatatom 639 646 5 0 0 0 - - -;
+#X obj 608 796 usss.fftfilter mfft;
+#X floatatom 130 370 5 0 0 0 - - -;
+#X connect 10 0 9 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 7 0;
+#X connect 14 0 22 0;
+#X connect 14 1 22 1;
+#X connect 15 1 16 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 14 0;
+#X connect 19 0 14 1;
+#X connect 21 0 20 0;
+#X connect 22 0 6 0;
+#X connect 22 1 6 1;
+#X connect 23 0 25 0;
+#X connect 24 0 23 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X connect 27 0 31 0;
+#X connect 27 1 31 0;
+#X connect 27 2 28 0;
+#X connect 28 0 30 0;
+#X connect 30 0 17 0;
+#X connect 31 0 17 0;
+#X connect 32 0 33 1;
+#X connect 32 0 14 2;
+#X connect 32 1 35 1;
+#X connect 32 1 14 3;
+#X connect 33 0 37 0;
+#X connect 34 0 33 0;
+#X connect 34 0 35 0;
+#X connect 35 0 37 1;
+#X connect 36 0 34 0;
+#X connect 37 0 6 0;
+#X connect 37 0 14 2;
+#X connect 37 1 6 1;
+#X connect 37 1 14 3;
+#X connect 38 0 23 1;

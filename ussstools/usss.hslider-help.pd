@@ -1,0 +1,27 @@
+#N canvas 289 276 608 617 10;
+#X obj 49 117 usss.hslider myslider1 0 1 0.75;
+#X text 49 188 usss.hslider myslider1 0 1 0.75;
+#X text 50 74 The slider object is an abstraction that is used by many
+of the usss patches.;
+#X text 48 258 Outlets: left outlet is data \, right outlet is signal
+(with linear smoothing);
+#X text 49 155 This object was created with following object text and
+arguments;
+#X text 48 208 Inlets: value \, min \, max \, signal (VC);
+#X text 48 233 Arguments: name \, min_value \, max_value \, default
+;
+#X text 48 308 In addition this object responds automatically to data
+sent with send objects reffering to it by name so the following can
+control it.;
+#X obj 53 378 send myslider1;
+#X floatatom 53 353 5 0 0 0 - - -;
+#X text 49 403 In abstractions this is the sliders would normally be
+named \$1.myslider. This is done to ensure multiplicit objects can
+be instanciated.;
+#X obj 52 503 osc~ 100;
+#X obj 52 535 throw~ myslider.cv;
+#X text 49 456 As vell as this a summing CV signal catch~ is provided
+which is summed with the signal outlet so the following is possible
+(note the name.cv for the throw target):;
+#X connect 9 0 8 0;
+#X connect 11 0 12 0;

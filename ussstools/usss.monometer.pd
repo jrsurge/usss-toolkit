@@ -1,0 +1,16 @@
+#N canvas 265 242 450 300 10;
+#X obj 102 103 vu 8 80 empty empty -1 -8 0 10 -66577 -1 0 0;
+#X obj 101 28 inlet~;
+#X obj 101 53 env~;
+#X obj 101 76 - 100;
+#X obj 141 100 expr 20 * log($f1);
+#X obj 136 53 peakenv~ 2000;
+#X obj 141 79 unsig~ 100;
+#X connect 1 0 2 0;
+#X connect 1 0 5 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 1;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X coords 0 -1 1 1 12 86 2 100 100;

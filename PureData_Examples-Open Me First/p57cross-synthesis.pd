@@ -1,0 +1,31 @@
+#N canvas 417 50 718 786 10;
+#X declare -path ../ussstools;
+#X obj -38 139 declare -path ../ussstools;
+#X obj 164 194 usss.sfplay mysf;
+#X obj 42 546 usss.output sfout;
+#X obj -91 189 notein;
+#X obj -91 223 pack 0 0;
+#X obj 41 369 usss.shapee mys;
+#X obj -91 263 usss.phasorsynth myps sawtoothwave;
+#X text -59 93 page 57 shapee cross synthesis with thanks to Lyon and
+Penrose;
+#X text 228 498 speech.wav in mysf sawtooth in phasorsynth = typical
+vocoder voice;
+#X obj 299 460 s block_size;
+#X text 298 385 PC and linux;
+#X text 431 415 Mac;
+#X msg 420 442 set 64;
+#X msg 306 431 set 256;
+#X msg 299 409 set 2048;
+#X connect 1 0 5 2;
+#X connect 1 1 5 3;
+#X connect 3 0 4 0;
+#X connect 3 1 4 1;
+#X connect 4 0 6 0;
+#X connect 5 0 2 0;
+#X connect 5 1 2 1;
+#X connect 6 0 5 0;
+#X connect 6 1 5 1;
+#X connect 12 0 9 0;
+#X connect 13 0 9 0;
+#X connect 14 0 9 0;

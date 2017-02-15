@@ -1,0 +1,113 @@
+#N canvas 205 0 1256 772 10;
+#X declare -path ../ussstools;
+#X declare -lib iemgui;
+#X declare -path ../../ussstools;
+#X declare -lib iemgui;
+#X declare -path ../../ussstools;
+#X text 59 5 HELP!! - Every usss path has its own dedicated helpfile
+right click on the object and seslect 'help' ...;
+#X text 408 5 note: all usss patches will need to be named with a uniques
+identifier when created e.g. "usss.bandpass mybandpass" otherwise they
+will be tempted to do strange things...;
+#X text 785 5 This list can always be accessed by right-clicking -
+help on a usss object box:;
+#X obj 937 31 usss;
+#X obj 61 41 declare -path ../ussstools;
+#X text 20 104 Bandpass Filter;
+#X obj 18 130 usss.bandpass my bandpass;
+#X text 230 137 Basic bandpass filter \, high and low frequencies and
+Q Values.;
+#X text 646 104 Dopper Effect;
+#X obj 635 130 usss.doppler my_doppler;
+#X text 859 139 Doppler effect unit. Creates doppler shift sounds.
+;
+#X text 20 404 Comb Filter;
+#X obj 18 432 usss.combfilt mycomb;
+#X text 235 449 Basic comb filter \, allows control of both comb and
+output volume.;
+#X text 646 403 Envelope;
+#X obj 635 429 usss.envelope myenv;
+#X text 858 449 Basic envelope \, allows controls of envelope shape.
+;
+#X text 20 593 Delay;
+#X obj 18 625 usss.delay mydelay;
+#X text 235 639 Basic delay \, allows control of delay time \, level
+\, feedback crossfeedback \, modulating frequency and depth.;
+#X text 646 1113 FFT Filter;
+#X obj 635 1139 usss.fftfilter myfft;
+#X text 856 1156 Basic FFT filter \, drawable in a similar fashion
+to usss.envelope.;
+#X text 20 1332 Filter Sweep;
+#X obj 18 1370 usss.filtersweep myfltsweep;
+#X text 243 1392 Basic filtersweep \, time dependent filterting. A
+stereo version also exists under the name filtersweepst;
+#X obj 635 710 usss.dynamicdelay mydyndel;
+#X text 638 675 Dynamic Delay;
+#X text 864 718 A more complex delay that allows creation of a dynamic
+number of delays. Also with an XY control surface. See the help file
+for further information.;
+#X text 20 881 Dynamic Resonant Filters;
+#X obj 18 908 usss.dynamicreson mydynres;
+#X text 245 947 A dynamic bank of resonant filters with an XY control
+surface.;
+#X text 646 1323 Granulator;
+#X obj 635 1359 usss.granular mygran;
+#X text 856 1393 A basic granulator that records live input or uses
+a soundfile.;
+#X obj 18 1596 usss.hp myhp;
+#X text 19 1568 Highpass Filter;
+#X text 243 1602 Basic highpass filter.;
+#X obj 18 1732 usss.input myin;
+#X text 19 1708 Input;
+#X obj 636 1742 usss.keyboard mykeys;
+#X text 647 1707 Basic Keyboard Controller;
+#X text 858 1776 A basic \, mouse controllable keyboard interface.
+;
+#X text 21 1871 Lowpass Filter;
+#X obj 18 1900 usss.lp mylp;
+#X text 244 1915 Basic lowpass filter cutoff filter.;
+#X text 255 1752 Allows attenuation of the ADC~ input.;
+#X text 647 1945 Output;
+#X obj 636 1972 usss.output myoutput;
+#X text 856 1995 Output module with dsp and gain control as well as
+recording functionality;
+#X text 20 1989 Four channel Mixer;
+#X obj 20 2037 usss.mixer mymix;
+#X text 271 2047 A 4-stereo-input mixer.;
+#X text 648 2146 FFT-plotter;
+#X obj 636 2173 usss.plotfft myfftplot;
+#X text 867 2186 Enables visual reference of FFT filtering.;
+#X obj 20 2277 usss.panner1 mypan;
+#X text 20 2239 Panner;
+#X text 240 2284 Basic Equal power L-R Panner;
+#X text 20 2349 Pitchshifter;
+#X obj 20 2387 usss.pitchshift mypitch;
+#X text 240 2424 Basic delay based pitchshifter.;
+#X text 648 2366 Resonant Filter;
+#X obj 636 2401 usss.reson myres;
+#X text 869 2423 The original usss resonant filterbank uses a random
+bank of 16 filters.;
+#X obj 636 2608 usss.sfplay mysfplay;
+#X text 647 2577 Soundfile Player;
+#X text 20 2669 Pulse Unit;
+#X obj 20 2699 usss.pulse my pulse;
+#X obj 20 2899 usss.reverb myreverb;
+#X text 20 2869 Reverb;
+#X text 647 2777 Scope;
+#X obj 636 2818 usss.simplescope mysimplescope;
+#X text 647 3047 Varispeed;
+#X obj 637 3084 usss.varispeed myvarispeed;
+#X text 864 3100 A variable speed playback audio file player.;
+#X text 868 2845 Simple Visual Scope.;
+#X text 869 2635 Basic file browser equipped soundfile player.;
+#X text 240 2728 Pulse width wave generation.;
+#X text 240 2918 Basic Reverb Unit.;
+#X text 20 3139 Sound Shaper;
+#X obj 20 3178 usss.shapee myshapee;
+#X text 247 3195 Enables sound morphing;
+#X text 20 3299 Sinewave Generator;
+#X obj 19 3328 usss.sinusoid mysin;
+#X text 247 3335 Basic sinewave generator.;
+#X obj 637 3323 usss.zmap;
+#X text 647 3288 Z-map;
+#X text 736 3322 re-maps value of incoming integers.;

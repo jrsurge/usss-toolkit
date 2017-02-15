@@ -1,0 +1,28 @@
+#N canvas 412 25 724 375 10;
+#X obj -646 33 noise~;
+#X text -484 63 MIDI Note Number;
+#X text -475 98 This is a comb filter: the input audio is filtered
+such that a set sequential narrow frequencies is heard.;
+#X obj -716 89 usss.combfilt mycomb 40;
+#X text -477 131 arguments: arg1 is the object name \, arg2 is the
+default MIDI note number.;
+#X text -479 194 outamp: sets the filter gain;
+#X obj -717 272 *~ 0.1;
+#X obj -524 272 *~ 0.1;
+#X obj -635 321 dac~;
+#X floatatom -523 61 5 0 0 0 - - -;
+#X text -477 214 combvol: sets the output volume;
+#X text -476 160 midipitch: sets the pitch of the filter based on a
+midi note number;
+#X text -623 63;
+#X obj -804 15 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg -804 59 \; pd dsp \$1;
+#X connect 0 0 3 0;
+#X connect 0 0 3 1;
+#X connect 3 0 6 0;
+#X connect 3 1 7 0;
+#X connect 6 0 8 0;
+#X connect 7 0 8 1;
+#X connect 9 0 3 2;
+#X connect 13 0 14 0;

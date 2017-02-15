@@ -1,0 +1,13 @@
+#N canvas 152 335 374 208 10;
+#X obj 20 55 usss.phasor phasor;
+#X obj 10 176 dac~;
+#X obj 20 136 *~ 0.5;
+#X obj 238 46 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 238 87 \; pd dsp \$1;
+#X text 11 9 A Phasor~ wrapped with the appropriate maths to create
+a sawtooth wave generator;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 2 0 1 1;
+#X connect 3 0 4 0;

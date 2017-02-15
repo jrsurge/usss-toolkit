@@ -1,0 +1,7 @@
+#N canvas 2315 112 846 577 10;
+#X obj 54 61 route \$1;
+#X obj 54 13 r \$2.events;
+#X obj 53 112 \$3 \$2;
+#X obj 132 105 print;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;

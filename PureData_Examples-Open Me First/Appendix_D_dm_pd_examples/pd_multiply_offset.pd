@@ -1,0 +1,12 @@
+#N canvas 1015 323 512 306 10;
+#X floatatom 138 55 5 0 0 0 - - -;
+#X floatatom 138 136 5 0 0 0 - - -;
+#X obj 138 79 * 10;
+#X obj 138 107 + 1;
+#X text 177 79 scale;
+#X text 171 106 offset;
+#X text 190 54 assuming an input range of 0..10;
+#X text 186 135 comment;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;

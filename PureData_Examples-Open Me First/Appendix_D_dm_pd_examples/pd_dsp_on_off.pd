@@ -1,0 +1,17 @@
+#N canvas 596 193 577 432 10;
+#X obj 135 248 dac~;
+#X obj 136 142 adc~;
+#X msg 328 166 \; pd dsp 1 \;;
+#X msg 328 202 \; pd dsp 0 \;;
+#X text 171 139 signals from audio card or other programs;
+#X text 175 248 signals to audio card or other programs;
+#X obj 159 197 *~;
+#X obj 135 197 *~;
+#X floatatom 194 166 5 0 0 0 - - -;
+#X text 234 165 gain;
+#X connect 1 0 7 0;
+#X connect 1 1 6 0;
+#X connect 6 0 0 1;
+#X connect 7 0 0 0;
+#X connect 8 0 6 1;
+#X connect 8 0 7 0;

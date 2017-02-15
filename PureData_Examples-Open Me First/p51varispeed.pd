@@ -1,0 +1,11 @@
+#N canvas 417 50 521 857 10;
+#X declare -path ../ussstools;
+#X obj 253 63 declare -path ../ussstools;
+#X obj 39 59 usss.sfplay mysf;
+#X obj 39 426 usss.output sfout;
+#X text 40 31 page 51 varispeed;
+#X obj 39 229 usss.varispeed myvs;
+#X connect 1 0 4 0;
+#X connect 1 1 4 1;
+#X connect 4 0 2 0;
+#X connect 4 1 2 1;

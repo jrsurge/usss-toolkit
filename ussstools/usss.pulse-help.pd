@@ -1,0 +1,19 @@
+#N canvas 710 473 574 419 10;
+#X obj -249 233 dac~;
+#X obj -249 194 *~ 0.1;
+#X obj 127 124 loadbang;
+#X msg 127 153 \; pd dsp 1 \; mypulse-frequency 220 \; mypulse-index
+1;
+#X obj -191 207 usss.simplescope mysscope;
+#X text -40 6 smoothed mono pulse generator with variable index;
+#X text -41 75 output ranges from pulse (100) to sine (0);
+#X obj -250 -2 usss.pulse mypulse;
+#X obj 32 124 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 32 168 \; pd dsp \$1;
+#X connect 1 0 0 0;
+#X connect 1 0 0 1;
+#X connect 2 0 3 0;
+#X connect 7 0 1 0;
+#X connect 7 0 4 0;
+#X connect 8 0 9 0;

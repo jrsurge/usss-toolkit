@@ -1,0 +1,15 @@
+#N canvas 12 24 773 696 10;
+#X declare -path E:/USSSTOOLSKIT/ussstools;
+#X declare -path ../../ussstools;
+#X obj 73 532 usss.output8 myout;
+#X obj 72 30 declare -path E:/USSSTOOLSKIT/ussstools;
+#X obj 82 113 usss.granular8 myg;
+#X obj 328 93 declare -path ../../ussstools;
+#X connect 2 0 0 0;
+#X connect 2 1 0 1;
+#X connect 2 2 0 2;
+#X connect 2 3 0 3;
+#X connect 2 4 0 4;
+#X connect 2 5 0 5;
+#X connect 2 6 0 6;
+#X connect 2 7 0 7;

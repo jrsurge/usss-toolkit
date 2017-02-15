@@ -1,0 +1,13 @@
+#N canvas 932 306 657 383 10;
+#X obj 190 260 dac~;
+#X obj 232 177 line~;
+#X obj 204 216 *~;
+#X msg 232 121 0 \, 1 2000 0 2000;
+#X obj 123 84 osc~ 220;
+#X text 200 60 linear fade in and fade out start at 0 ramp to 1 taking
+2 seconds ramp back to 0 taking 2 seconds;
+#X connect 1 0 2 1;
+#X connect 2 0 0 0;
+#X connect 2 0 0 1;
+#X connect 3 0 1 0;
+#X connect 4 0 2 0;

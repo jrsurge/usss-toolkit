@@ -1,0 +1,51 @@
+#N canvas 958 161 710 496 10;
+#X obj -70 103 usss.pitchshift myps;
+#X obj 430 28 loadbang;
+#X obj -69 372 dac~;
+#N canvas 743 378 450 300 testvoc 0;
+#X obj 58 130 soundfiler;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array testsound 62310 float 2;
+#X coords 0 1 62310 -1 200 140 1;
+#X restore 244 157 graph;
+#X obj 19 38 loadbang;
+#X obj 20 193 tabplay~ testsound;
+#X obj 19 216 outlet~;
+#X obj 19 169 bang;
+#X obj 19 62 t b b;
+#X obj 147 167 spigot;
+#X msg 180 143 1;
+#X obj 83 38 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 58 102 read -resize seldomsee.wav testsound;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 3 1 7 0;
+#X connect 5 0 3 0;
+#X connect 6 0 5 0;
+#X connect 6 1 10 0;
+#X connect 6 1 8 0;
+#X connect 7 0 5 0;
+#X connect 8 0 7 1;
+#X connect 9 0 6 0;
+#X connect 10 0 0 0;
+#X restore -70 59 pd testvoc;
+#X msg 430 56 \; pd dsp 1 \; myps.gainL 0.5 \; myps.gainR 0.5 \; myps.transposition
+12;
+#X text 133 106 inputs: stereo audio;
+#X text 132 147 transposition in semitones (+ve and -ve);
+#X text 135 274 left and right channel gain;
+#X text 70 30 A pitch shift module;
+#X obj 312 25 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 312 69 \; pd dsp \$1;
+#X text 135 190 Adjust window and delay to alter the delay line length.
+;
+#X text 135 204 Larger window sizes result in more 'repetition' of
+sounds;
+#X connect 0 0 2 0;
+#X connect 0 1 2 1;
+#X connect 1 0 4 0;
+#X connect 3 0 0 0;
+#X connect 3 0 0 1;
+#X connect 9 0 10 0;

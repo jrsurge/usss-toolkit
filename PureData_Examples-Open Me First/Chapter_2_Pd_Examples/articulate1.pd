@@ -1,0 +1,90 @@
+#N canvas 171 87 946 743 10;
+#X declare -stdpath /usr/lib/pd/extra/tof;
+#X declare -path ../../ussstools;
+#X obj 474 45 usss.granular mygran;
+#X obj 75 195 usss.envelope myenv;
+#X obj 7 479 usss.output myout;
+#X obj 443 414 metro 1000;
+#X obj 443 387 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 443 441 s myenv.trigger;
+#X obj 569 419 usss.zmap 0 127 50 500;
+#X floatatom 572 444 5 0 0 0 - - -;
+#X obj 574 480 s myenv.total_time;
+#X floatatom 578 542 5 0 0 0 - - -;
+#X obj 578 564 abs;
+#X floatatom 580 586 5 0 0 0 - - -;
+#X floatatom 431 521 5 0 0 0 - - -;
+#X obj 426 546 s mygran.randpitch;
+#X obj 427 496 usss.zmap 0 127 0 3;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array array1 100 float 3;
+#A 0 -0.985716 -0.971431 -0.957145 -0.942859 -0.928573 -0.914288 -0.885716
+-0.857145 -0.828573 -0.800002 -0.757144 -0.714287 -0.628573 -0.600001
+-0.514287 -0.414287 -0.300001 -0.1 0.0714287 0.485715 0.585715 0.642858
+0.67143 0.700001 0.728573 0.77143 0.785716 0.77143 0.728573 0.700001
+0.600001 0.542858 0.442858 0.400001 0.300001 0.128572 0.0142857 -0.0714287
+-0.128572 -0.2 -0.271429 -0.314286 -0.328572 -0.371429 -0.414287 -0.442858
+-0.457144 -0.485715 -0.500001 -0.500001 -0.500001 -0.485715 -0.442858
+-0.428572 -0.385715 -0.357144 -0.328572 -0.285715 -0.242858 -0.142857
+-0.0714288 -5.02914e-08 0.0571429 0.157143 0.2 0.228572 0.271429 0.357144
+0.371429 0.428572 0.471429 0.485715 0.528572 0.557144 0.57143 0.585715
+0.600001 0.600001 0.600001 0.585715 0.557144 0.528572 0.500001 0.442858
+0.400001 0.342858 0.300001 0.185715 0.142857 0.057143 -0.0714287 -0.185715
+-0.414287 -0.47143 -0.542858 -0.600001 -0.657144 -0.728573 -0.757144
+-1.05715;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 18 37 graph;
+#X obj 251 71 tabread array1;
+#X floatatom 247 99 5 0 0 0 - - -;
+#X floatatom 244 40 5 0 0 0 - - -;
+#X obj 569 388 ctlin 74;
+#X obj 338 2 ctlin 71;
+#X obj 337 26 usss.zmap 0 127 0 100;
+#X obj 250 122 + 1;
+#X obj 248 148 usss.zmap 0 2 50 500;
+#X obj 245 17 line;
+#X msg 236 -6 0 \, 100 3000;
+#X msg 357 62 100 \, 0 3000;
+#X obj 223 409 usss.reverb myrev;
+#X obj 434 581 usss.zmap 0 127 0 1;
+#X obj 453 619 s myrev.dry;
+#X obj 579 517 - 1;
+#X obj 629 576 usss.zmap 0 127 0 1;
+#X obj 633 604 s myrev.wet;
+#X obj 473 -15 declare -stdpath /usr/lib/pd/extra/tof;
+#X obj 471 12 declare -path ../../ussstools;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 1 0 27 0;
+#X connect 1 1 27 1;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 6 0 7 0;
+#X connect 7 0 3 1;
+#X connect 7 0 8 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 29 0;
+#X connect 12 0 13 0;
+#X connect 14 0 12 0;
+#X connect 16 0 17 0;
+#X connect 17 0 22 0;
+#X connect 18 0 16 0;
+#X connect 19 0 6 0;
+#X connect 19 0 14 0;
+#X connect 19 0 28 0;
+#X connect 19 0 31 0;
+#X connect 20 0 21 0;
+#X connect 21 0 18 0;
+#X connect 22 0 23 0;
+#X connect 23 0 8 0;
+#X connect 23 0 3 1;
+#X connect 24 0 18 0;
+#X connect 25 0 24 0;
+#X connect 26 0 24 0;
+#X connect 27 0 2 0;
+#X connect 27 1 2 1;
+#X connect 28 0 30 0;
+#X connect 30 0 9 0;
+#X connect 31 0 32 0;

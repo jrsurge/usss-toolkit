@@ -1,0 +1,467 @@
+<blueData version='2.5.2'>
+  <projectProperties>
+    <title></title>
+    <author>author</author>
+    <notes></notes>
+    <sampleRate>44100</sampleRate>
+    <ksmps>1</ksmps>
+    <channels>2</channels>
+    <useZeroDbFS>false</useZeroDbFS>
+    <zeroDbFS>1</zeroDbFS>
+    <diskSampleRate>44100</diskSampleRate>
+    <diskKsmps>1</diskKsmps>
+    <diskChannels>2</diskChannels>
+    <diskUseZeroDbFS>false</diskUseZeroDbFS>
+    <diskZeroDbFS>1</diskZeroDbFS>
+    <useAudioOut>true</useAudioOut>
+    <useAudioIn>false</useAudioIn>
+    <useMidiIn>false</useMidiIn>
+    <useMidiOut>false</useMidiOut>
+    <noteAmpsEnabled>true</noteAmpsEnabled>
+    <outOfRangeEnabled>true</outOfRangeEnabled>
+    <warningsEnabled>true</warningsEnabled>
+    <benchmarkEnabled>true</benchmarkEnabled>
+    <advancedSettings></advancedSettings>
+    <completeOverride>false</completeOverride>
+    <fileName></fileName>
+    <askOnRender>false</askOnRender>
+    <diskNoteAmpsEnabled>true</diskNoteAmpsEnabled>
+    <diskOutOfRangeEnabled>true</diskOutOfRangeEnabled>
+    <diskWarningsEnabled>true</diskWarningsEnabled>
+    <diskBenchmarkEnabled>true</diskBenchmarkEnabled>
+    <diskAdvancedSettings></diskAdvancedSettings>
+    <diskCompleteOverride>false</diskCompleteOverride>
+    <diskAlwaysRenderEntireProject>false</diskAlwaysRenderEntireProject>
+  </projectProperties>
+  <arrangement>
+    <instrumentAssignment arrangementId='1' isEnabled='true'>
+      <instrument type='blue.orchestra.BlueSynthBuilder' editEnabled='false'>
+        <name>time-stretcher</name>
+        <comment></comment>
+        <globalOrc>gi_sin_&lt;INSTR_ID&gt; ftgen 0, 0, 16384, 10, 1</globalOrc>
+        <globalSco>
+</globalSco>
+        <instrumentText>irm = 0.5
+ihfdmp = 0.05
+ifftsize = &lt;fftsize&gt;
+ioverlap = &lt;fftsize&gt;/4
+iwinsize = &lt;fftsize&gt;*2
+kamp = &lt;drywet&gt;
+
+if (&lt;useaudio&gt;==0) goto continue1
+	goto continue2
+
+continue1:
+ain1,ain2     	diskin	 &quot;&lt;filein&gt;&quot;, &lt;speed&gt;, 0, &lt;loop&gt;
+
+fsigt1 pvsanal   ain1, ifftsize, ioverlap, iwinsize, 0 ;overlap = 2
+fsigt2 pvsanal 	ain2, ifftsize, ioverlap, iwinsize, 0
+
+fsig1  pvscale   fsigt1, &lt;scal&gt;, &lt;formants&gt;        ; transpose it keeping formants
+fsig2  pvscale   fsigt2, &lt;scal&gt;, &lt;formants&gt;
+goto playit
+
+
+continue2:
+ires system_i 1, {{ 
+	csound -U pvanal -n &lt;fftsize&gt; -w 4 -c 1 &quot;&lt;filein&gt;&quot; &quot;pvtempleft.pvx&quot;
+       }}
+ires system_i 1, {{
+	csound -U pvanal -n &lt;fftsize&gt; -w 4 -c 2 &quot;&lt;filein&gt;&quot; &quot;pvtempright.pvx&quot;
+   	}}
+
+fsig1  	pvsdiskin	 &quot;pvtempleft.pvx&quot;, &lt;tpointer&gt;, 1
+fsig2  	pvsdiskin	 &quot;pvtempright.pvx&quot;, &lt;tpointer&gt;, 1
+goto playit
+
+playit:
+
+
+asig1  pvsynth  fsig1                      ; synthesise it
+asig2  pvsynth  fsig2     
+aout1, aout2	freeverb asig1,asig2, irm, ihfdmp
+
+
+;blueMixerOut	asig1, asig2
+outs asig1*kamp + aout1*(1.0-kamp), asig2*kamp + aout2*(1.0-kamp)</instrumentText>
+        <alwaysOnInstrumentText></alwaysOnInstrumentText>
+        <graphicInterface editEnabled='false'>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBKnob' version='2'>
+            <objectName>tpointer</objectName>
+            <x>99</x>
+            <y>132</y>
+            <automationAllowed>true</automationAllowed>
+            <minimum>0.0</minimum>
+            <maximum>1.0</maximum>
+            <value>0.35098684</value>
+            <knobWidth>60</knobWidth>
+            <randomizable>true</randomizable>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+            <objectName></objectName>
+            <x>93</x>
+            <y>210</y>
+            <label>timepointer</label>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBCheckBox'>
+            <objectName>useaudio</objectName>
+            <x>24</x>
+            <y>73</y>
+            <automationAllowed>false</automationAllowed>
+            <label>useaudio</label>
+            <selected>false</selected>
+            <randomizable>false</randomizable>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBFileSelector'>
+            <objectName>filein</objectName>
+            <x>24</x>
+            <y>98</y>
+            <fileName>C:\Users\mua12ag\Desktop\sounds\speech.wav</fileName>
+            <textFieldWidth>100</textFieldWidth>
+            <stringChannelEnabled>false</stringChannelEnabled>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBKnob' version='2'>
+            <objectName>speed</objectName>
+            <x>30</x>
+            <y>134</y>
+            <automationAllowed>true</automationAllowed>
+            <minimum>0.0</minimum>
+            <maximum>5.0</maximum>
+            <value>3.900209</value>
+            <knobWidth>60</knobWidth>
+            <randomizable>true</randomizable>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBCheckBox'>
+            <objectName>loop</objectName>
+            <x>119</x>
+            <y>73</y>
+            <automationAllowed>false</automationAllowed>
+            <label>loop</label>
+            <selected>true</selected>
+            <randomizable>false</randomizable>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+            <objectName></objectName>
+            <x>38</x>
+            <y>210</y>
+            <label>speed</label>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBDropdown'>
+            <objectName>fftsize</objectName>
+            <x>180</x>
+            <y>87</y>
+            <automationAllowed>false</automationAllowed>
+            <bsbDropdownItemList>
+              <bsbDropdownItem uniqueId='-1312013580'>
+                <name>256</name>
+                <value>256</value>
+              </bsbDropdownItem>
+              <bsbDropdownItem uniqueId='-1312013579'>
+                <name>512</name>
+                <value>512</value>
+              </bsbDropdownItem>
+              <bsbDropdownItem uniqueId='-1312013578'>
+                <name>1024</name>
+                <value>1024</value>
+              </bsbDropdownItem>
+              <bsbDropdownItem uniqueId='-1312013577'>
+                <name>2048</name>
+                <value>2048</value>
+              </bsbDropdownItem>
+              <bsbDropdownItem uniqueId='-1312013576'>
+                <name>4096</name>
+                <value>4096</value>
+              </bsbDropdownItem>
+              <bsbDropdownItem uniqueId='-1312013575'>
+                <name>8192</name>
+                <value>8192</value>
+              </bsbDropdownItem>
+            </bsbDropdownItemList>
+            <selectedIndex>2</selectedIndex>
+            <randomizable>true</randomizable>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+            <objectName></objectName>
+            <x>188</x>
+            <y>71</y>
+            <label>fftsize</label>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBKnob' version='2'>
+            <objectName>drywet</objectName>
+            <x>414</x>
+            <y>146</y>
+            <automationAllowed>true</automationAllowed>
+            <minimum>0.0</minimum>
+            <maximum>1.0</maximum>
+            <value>0.0</value>
+            <knobWidth>60</knobWidth>
+            <randomizable>true</randomizable>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+            <objectName></objectName>
+            <x>421</x>
+            <y>128</y>
+            <label>dry wet</label>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+            <objectName></objectName>
+            <x>23</x>
+            <y>13</y>
+            <label>&lt;html&gt;&lt;font size=&quot;+3&quot;&gt;&lt;b&gt;time stretch&lt;/b&gt;&lt;/font&gt;&lt;/html&gt;</label>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+            <objectName></objectName>
+            <x>26</x>
+            <y>238</y>
+            <label>&lt;html&gt;&lt;b&gt;&lt;i&gt;a simple object that allows you to &lt;br&gt;scroll through the soundfile without changing pitch&lt;br&gt;or change pitch without changing speed&lt;/i&gt;&lt;/b&gt;&lt;/html&gt;</label>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+            <objectName></objectName>
+            <x>248</x>
+            <y>82</y>
+            <label>&lt;html&gt;&lt;b&gt;&lt;i&gt;use audio = 0: use the pitch scale (scal) &lt;br&gt; use audio = 1: use the time pointer&lt;/i&gt;&lt;/b&gt;&lt;/html&gt;</label>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBCheckBox'>
+            <objectName>formants</objectName>
+            <x>245</x>
+            <y>118</y>
+            <automationAllowed>false</automationAllowed>
+            <label>keep formants</label>
+            <selected>true</selected>
+            <randomizable>false</randomizable>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBKnob' version='2'>
+            <objectName>scal</objectName>
+            <x>175</x>
+            <y>132</y>
+            <automationAllowed>true</automationAllowed>
+            <minimum>0.0</minimum>
+            <maximum>5.0</maximum>
+            <value>2.4572663</value>
+            <knobWidth>60</knobWidth>
+            <randomizable>true</randomizable>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+            <objectName></objectName>
+            <x>173</x>
+            <y>210</y>
+            <label>pitch scale</label>
+          </bsbObject>
+        </graphicInterface>
+        <bsbParameterList>
+          <parameter uniqueId='839157569' name='drywet' label='' min='0.0' max='1.0' resolution='-1.0' automationEnabled='true' value='0.38466752'>
+            <line name='' version='2' max='1.0' min='0.0' resolution='-1.0' color='-14623488' rightBound='false' endPointsLinked='false'>
+              <linePoint x='0.0' y='0.0'/>
+              <linePoint x='0.0882353' y='0.0'/>
+            </line>
+          </parameter>
+          <parameter uniqueId='-556326977' name='scal' label='' min='0.0' max='5.0' resolution='-1.0' automationEnabled='true' value='1.0'>
+            <line name='' version='2' max='5.0' min='0.0' resolution='-1.0' color='-14623488' rightBound='false' endPointsLinked='false'>
+              <linePoint x='0.0' y='2.4572663'/>
+              <linePoint x='2.1176472' y='4.6153846'/>
+              <linePoint x='2.8823528' y='5.0'/>
+              <linePoint x='5.132353' y='2.1153846'/>
+            </line>
+          </parameter>
+          <parameter uniqueId='-451500874' name='speed' label='' min='0.0' max='5.0' resolution='-1.0' automationEnabled='true' value='1.0'>
+            <line name='' version='2' max='5.0' min='0.0' resolution='-1.0' color='-14623488' rightBound='false' endPointsLinked='false'>
+              <linePoint x='0.0' y='3.900209'/>
+              <linePoint x='0.10294118' y='0.5769232'/>
+              <linePoint x='1.8529412' y='0.7692307'/>
+              <linePoint x='4.382353' y='0.83333343'/>
+              <linePoint x='6.677966' y='0.0'/>
+              <linePoint x='10.338235' y='0.83333343'/>
+              <linePoint x='14.161765' y='0.83333343'/>
+              <linePoint x='15.176471' y='1.2179488'/>
+              <linePoint x='16.647058' y='0.38461536'/>
+              <linePoint x='18.205883' y='0.38461536'/>
+              <linePoint x='18.602942' y='0.38461536'/>
+              <linePoint x='19.338236' y='0.25641024'/>
+              <linePoint x='19.838236' y='0.0'/>
+              <linePoint x='20.294117' y='3.2051282'/>
+            </line>
+          </parameter>
+          <parameter uniqueId='-797955069' name='tpointer' label='' min='0.0' max='1.0' resolution='-1.0' automationEnabled='true' value='0.60592884'>
+            <line name='' version='2' max='1.0' min='0.0' resolution='-1.0' color='-14623488' rightBound='false' endPointsLinked='false'>
+              <linePoint x='0.0' y='0.35098684'/>
+              <linePoint x='0.19491525' y='0.6025641'/>
+              <linePoint x='5.75' y='0.5769231'/>
+              <linePoint x='7.75' y='0.48717946'/>
+              <linePoint x='11.867647' y='0.19230771'/>
+            </line>
+          </parameter>
+        </bsbParameterList>
+        <presetGroup name='Presets'>
+          <presetGroup name='adesinstruments'/>
+          <preset name='ades_sampleplayer' uniqueId='-1312013562'>
+            <setting name='filein'></setting>
+            <setting name='loop'>false</setting>
+            <setting name='speed'>ver2:1.0322322845</setting>
+          </preset>
+        </presetGroup>
+        <opcodeList/>
+      </instrument>
+    </instrumentAssignment>
+  </arrangement>
+  <mixer>
+    <enabled>true</enabled>
+    <extraRenderTime>0.0</extraRenderTime>
+    <channelList list='channels'>
+      <channel>
+        <name>1</name>
+        <outChannel>Master</outChannel>
+        <level>-7.8</level>
+        <muted>false</muted>
+        <solo>false</solo>
+        <effectsChain bin='pre'/>
+        <effectsChain bin='post'/>
+        <parameter uniqueId='-797955103' name='Volume' label='dB' min='-96.0' max='12.0' resolution='-1.0' automationEnabled='false' value='-7.8'>
+          <line name='' version='2' max='12.0' min='-96.0' resolution='-1.0' color='-8355712' rightBound='false' endPointsLinked='false'>
+            <linePoint x='0.0' y='-7.8'/>
+          </line>
+        </parameter>
+      </channel>
+    </channelList>
+    <channelList list='subChannels'/>
+    <channel>
+      <name>Master</name>
+      <outChannel>Master</outChannel>
+      <level>-96.0</level>
+      <muted>false</muted>
+      <solo>false</solo>
+      <effectsChain bin='pre'/>
+      <effectsChain bin='post'/>
+      <parameter uniqueId='-797955108' name='Volume' label='dB' min='-96.0' max='12.0' resolution='-1.0' automationEnabled='false' value='-96.0'>
+        <line name='' version='2' max='12.0' min='-96.0' resolution='-1.0' color='-14623488' rightBound='false' endPointsLinked='false'>
+          <linePoint x='0.0' y='-96.0'/>
+          <linePoint x='1.4347826' y='-1.8461533'/>
+          <linePoint x='19.934782' y='-4.615387'/>
+          <linePoint x='21.195652' y='-96.0'/>
+        </line>
+      </parameter>
+    </channel>
+  </mixer>
+  <tables></tables>
+  <soundObjectLibrary/>
+  <globalOrcSco>
+    <globalOrc></globalOrc>
+    <globalSco></globalSco>
+  </globalOrcSco>
+  <opcodeList/>
+  <liveData>
+    <commandLine>csound -Wdo devaudio -L stdin</commandLine>
+    <commandLineEnabled>false</commandLineEnabled>
+    <commandLineOverride>false</commandLineOverride>
+    <liveObjectBins columns='1' rows='8'>
+      <bin>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+      </bin>
+    </liveObjectBins>
+    <liveObjectSetList/>
+    <repeat>4</repeat>
+    <tempo>60</tempo>
+  </liveData>
+  <score>
+    <tempo>
+      <enabled>true</enabled>
+      <visible>false</visible>
+      <line name='' version='2' max='240.0' min='30.0' resolution='-1.0' color='-8355712' rightBound='false' endPointsLinked='false'>
+        <linePoint x='0.0' y='60.0'/>
+      </line>
+    </tempo>
+    <timeState>
+      <pixelSecond>68</pixelSecond>
+      <snapEnabled>false</snapEnabled>
+      <snapValue>1.0</snapValue>
+      <timeDisplay>0</timeDisplay>
+      <timeUnit>5</timeUnit>
+    </timeState>
+    <noteProcessorChain/>
+    <soundObject type='blue.soundObject.PolyObject'>
+      <subjectiveDuration>2.0</subjectiveDuration>
+      <startTime>0.0</startTime>
+      <name>root</name>
+      <backgroundColor>-10066279</backgroundColor>
+      <timeBehavior>0</timeBehavior>
+      <noteProcessorChain/>
+      <isRoot>true</isRoot>
+      <defaultHeightIndex>0</defaultHeightIndex>
+      <timeState>
+        <pixelSecond>64</pixelSecond>
+        <snapEnabled>false</snapEnabled>
+        <snapValue>1.0</snapValue>
+        <timeDisplay>0</timeDisplay>
+        <timeUnit>5</timeUnit>
+      </timeState>
+      <soundLayer name='' muted='false' solo='false' heightIndex='3'>
+        <noteProcessorChain/>
+        <soundObject type='blue.soundObject.GenericScore'>
+          <subjectiveDuration>20.4</subjectiveDuration>
+          <startTime>0.0</startTime>
+          <name>GenericScore</name>
+          <backgroundColor>-12566464</backgroundColor>
+          <timeBehavior>0</timeBehavior>
+          <noteProcessorChain/>
+          <score>i1 0 2</score>
+        </soundObject>
+      </soundLayer>
+      <soundLayer name='' muted='false' solo='false' heightIndex='3'>
+        <noteProcessorChain/>
+        <parameterId>839157569</parameterId>
+      </soundLayer>
+      <soundLayer name='' muted='false' solo='false' heightIndex='3'>
+        <noteProcessorChain/>
+        <parameterId>-451500874</parameterId>
+      </soundLayer>
+      <soundLayer name='' muted='false' solo='false' heightIndex='3'>
+        <noteProcessorChain/>
+        <parameterId>-797955069</parameterId>
+      </soundLayer>
+      <soundLayer name='' muted='false' solo='false' heightIndex='3'>
+        <noteProcessorChain/>
+        <parameterId>-556326977</parameterId>
+      </soundLayer>
+    </soundObject>
+  </score>
+  <scratchPadData>
+    <isWordWrapEnabled>true</isWordWrapEnabled>
+    <scratchText/>
+  </scratchPadData>
+  <noteProcessorChainMap/>
+  <renderStartTime>0.0</renderStartTime>
+  <renderEndTime>20.4</renderEndTime>
+  <markersList/>
+  <loopRendering>false</loopRendering>
+  <midiInputProcessor>
+    <keyMapping>PCH</keyMapping>
+    <velMapping>MIDI</velMapping>
+    <pitchConstant/>
+    <ampConstant/>
+    <scale>
+      <scaleName>12TET</scaleName>
+      <baseFrequency>261.62558</baseFrequency>
+      <octave>2.0</octave>
+      <ratios>
+        <ratio>1.0</ratio>
+        <ratio>1.0594631</ratio>
+        <ratio>1.122462</ratio>
+        <ratio>1.1892071</ratio>
+        <ratio>1.2599211</ratio>
+        <ratio>1.3348398</ratio>
+        <ratio>1.4142135</ratio>
+        <ratio>1.4983071</ratio>
+        <ratio>1.587401</ratio>
+        <ratio>1.6817929</ratio>
+        <ratio>1.7817974</ratio>
+        <ratio>1.8877486</ratio>
+      </ratios>
+    </scale>
+  </midiInputProcessor>
+</blueData>

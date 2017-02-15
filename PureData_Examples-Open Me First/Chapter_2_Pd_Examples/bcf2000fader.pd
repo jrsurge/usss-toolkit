@@ -1,0 +1,6 @@
+#N canvas 164 172 247 109 10;
+#X obj 34 12 inlet;
+#X obj 34 42 usss.zmap \$1 \$2 \$3 \$4;
+#X obj 34 72 s \$5;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;

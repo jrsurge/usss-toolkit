@@ -1,0 +1,16 @@
+#N canvas 417 50 739 857 10;
+#X declare -path ../ussstools;
+#X obj 253 63 declare -path ../ussstools;
+#X obj 39 59 usss.sfplay mysf;
+#X obj 38 210 usss.granularX mygran;
+#X text 246 245 <<<< play sound in or simply open the whole file;
+#X text 40 31 page 50 Granulation using usss.granularX;
+#X obj 37 630 usss.output6 sfout6;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 2 0 5 0;
+#X connect 2 1 5 1;
+#X connect 2 2 5 2;
+#X connect 2 3 5 3;
+#X connect 2 4 5 4;
+#X connect 2 5 5 5;

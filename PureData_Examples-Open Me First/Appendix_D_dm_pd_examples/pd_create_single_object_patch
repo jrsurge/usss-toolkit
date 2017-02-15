@@ -1,0 +1,13 @@
+#!/bin/bash 
+while read f; do
+echo "#N canvas 415 312 450 300 10;" > pd_examples/tmp.pd
+echo "#X obj 138 96 $f;" >> pd_examples/tmp.pd
+pd pd_examples/tmp.pd &
+sleep 2
+b=`basename pd_examples/tmp.pd`
+echo $b
+st=`wmctrl -l | grep $b` 
+import -window ${st:0:10} images/tmp.png
+convert images/tmp.png -shave 40x40 +repage -trim images/pd_object_$f.png
+kill -9 `pidof pd`
+done

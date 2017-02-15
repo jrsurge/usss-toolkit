@@ -1,0 +1,538 @@
+<blueData version='2.5.14'>
+  <projectProperties>
+    <title></title>
+    <author>author</author>
+    <notes></notes>
+    <sampleRate>44100</sampleRate>
+    <ksmps>1</ksmps>
+    <channels>2</channels>
+    <useZeroDbFS>false</useZeroDbFS>
+    <zeroDbFS>1</zeroDbFS>
+    <diskSampleRate>44100</diskSampleRate>
+    <diskKsmps>1</diskKsmps>
+    <diskChannels>2</diskChannels>
+    <diskUseZeroDbFS>false</diskUseZeroDbFS>
+    <diskZeroDbFS>1</diskZeroDbFS>
+    <useAudioOut>true</useAudioOut>
+    <useAudioIn>false</useAudioIn>
+    <useMidiIn>false</useMidiIn>
+    <useMidiOut>false</useMidiOut>
+    <noteAmpsEnabled>true</noteAmpsEnabled>
+    <outOfRangeEnabled>true</outOfRangeEnabled>
+    <warningsEnabled>true</warningsEnabled>
+    <benchmarkEnabled>true</benchmarkEnabled>
+    <advancedSettings></advancedSettings>
+    <completeOverride>false</completeOverride>
+    <fileName></fileName>
+    <askOnRender>false</askOnRender>
+    <diskNoteAmpsEnabled>true</diskNoteAmpsEnabled>
+    <diskOutOfRangeEnabled>true</diskOutOfRangeEnabled>
+    <diskWarningsEnabled>true</diskWarningsEnabled>
+    <diskBenchmarkEnabled>true</diskBenchmarkEnabled>
+    <diskAdvancedSettings></diskAdvancedSettings>
+    <diskCompleteOverride>false</diskCompleteOverride>
+    <diskAlwaysRenderEntireProject>false</diskAlwaysRenderEntireProject>
+  </projectProperties>
+  <arrangement>
+    <instrumentAssignment arrangementId='2' isEnabled='true'>
+      <instrument type='blue.orchestra.BlueSynthBuilder' editEnabled='true'>
+        <name>player</name>
+        <comment></comment>
+        <globalOrc/>
+        <globalSco/>
+        <instrumentText>kamp adsr 0.01,0.01,1,0.01	
+irand = p4
+Sfilename = p5
+ipitch = p6
+ilength  filelen Sfilename 
+iskip = irand * ilength
+
+a1,a2 	diskin2 Sfilename,ipitch,iskip	
+
+;outs a1*kamp*0.1, a2*kamp*0.1
+outs a1*kamp*&lt;myAmp&gt;, a2*kamp*&lt;myAmp&gt;
+
+
+</instrumentText>
+        <alwaysOnInstrumentText></alwaysOnInstrumentText>
+        <graphicInterface editEnabled='false'>
+          <gridSettings>
+            <width>15</width>
+            <height>15</height>
+            <gridStyle>NONE</gridStyle>
+            <snapGridEnabled>false</snapGridEnabled>
+          </gridSettings>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBFileSelector'>
+            <objectName>filename</objectName>
+            <x>5</x>
+            <y>51</y>
+            <fileName></fileName>
+            <textFieldWidth>100</textFieldWidth>
+            <stringChannelEnabled>false</stringChannelEnabled>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+            <objectName></objectName>
+            <x>39</x>
+            <y>32</y>
+            <label>filename</label>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBCheckBox'>
+            <objectName>filterme</objectName>
+            <x>25</x>
+            <y>85</y>
+            <automationAllowed>false</automationAllowed>
+            <label>usefilter</label>
+            <selected>true</selected>
+            <randomizable>true</randomizable>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBKnob' version='2'>
+            <objectName>myAmp</objectName>
+            <x>297</x>
+            <y>26</y>
+            <automationAllowed>true</automationAllowed>
+            <minimum>0.0</minimum>
+            <maximum>1.0</maximum>
+            <value>0.57592154</value>
+            <knobWidth>60</knobWidth>
+            <randomizable>true</randomizable>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+            <objectName></objectName>
+            <x>250</x>
+            <y>103</y>
+            <label>Amplitude multiplier for larger mixes</label>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+            <objectName></objectName>
+            <x>25</x>
+            <y>112</y>
+            <label>NOT USED HERE</label>
+          </bsbObject>
+        </graphicInterface>
+        <bsbParameterList>
+          <parameter uniqueId='919503152' name='myAmp' label='' min='0.0' max='1.0' resolution='-1.0' automationEnabled='false' value='0.57592154'>
+            <line name='' version='2' max='1.0' min='0.0' resolution='-1.0' color='-8355712' rightBound='false' endPointsLinked='false'>
+              <linePoint x='0.0' y='0.57592154'/>
+            </line>
+          </parameter>
+        </bsbParameterList>
+        <presetGroup name='Presets'/>
+        <opcodeList/>
+      </instrument>
+    </instrumentAssignment>
+  </arrangement>
+  <mixer>
+    <enabled>false</enabled>
+    <extraRenderTime>0.0</extraRenderTime>
+    <channelList list='channels'>
+      <channel>
+        <name>2</name>
+        <outChannel>Master</outChannel>
+        <level>0.0</level>
+        <muted>false</muted>
+        <solo>false</solo>
+        <effectsChain bin='pre'/>
+        <effectsChain bin='post'/>
+        <parameter uniqueId='1834605908' name='Volume' label='dB' min='-96.0' max='12.0' resolution='-1.0' automationEnabled='false' value='0.0'>
+          <line name='' version='2' max='12.0' min='-96.0' resolution='-1.0' color='-8355712' rightBound='false' endPointsLinked='false'>
+            <linePoint x='0.0' y='0.0'/>
+          </line>
+        </parameter>
+      </channel>
+    </channelList>
+    <channelList list='subChannels'/>
+    <channel>
+      <name>Master</name>
+      <outChannel>Master</outChannel>
+      <level>0.0</level>
+      <muted>false</muted>
+      <solo>false</solo>
+      <effectsChain bin='pre'/>
+      <effectsChain bin='post'/>
+      <parameter uniqueId='1819885741' name='Volume' label='dB' min='-96.0' max='12.0' resolution='-1.0' automationEnabled='false' value='0.0'>
+        <line name='' version='2' max='12.0' min='-96.0' resolution='-1.0' color='-8355712' rightBound='false' endPointsLinked='false'>
+          <linePoint x='0.0' y='0.0'/>
+        </line>
+      </parameter>
+    </channel>
+  </mixer>
+  <tables></tables>
+  <soundObjectLibrary>
+    <soundObject type='blue.soundObject.ObjectBuilder' editEnabled='true' objRefId='919503161'>
+      <subjectiveDuration>29.25</subjectiveDuration>
+      <startTime>0.0</startTime>
+      <name>PythonObject</name>
+      <backgroundColor>-12566464</backgroundColor>
+      <timeBehavior>0</timeBehavior>
+      <noteProcessorChain/>
+      <code>#use variable blueDuration for duration from blue
+#use variable userConfigDir for user&apos;s .blue dir
+#use variable blueLibDir for blue&apos;s lib directory
+#use variable blueProjectDir for this project&apos;s directory
+import math
+import random
+import glob
+import os
+
+basepath = &lt;txtfld&gt;
+
+RndRgP = &lt;rndRangeP&gt;
+
+RndRgD = &lt;rndRangeD&gt;
+
+density = &lt;density&gt;
+
+scoreState = &lt;scoreState&gt;
+
+
+def myscore(numnotes):
+	scoreText = &quot;&quot;
+	soundFiles = glob.glob(basepath+&apos;*.wav&apos;)
+
+	lenSoundfiles = len(soundFiles)
+
+	for i in range (numnotes):
+		fnumber = random.randint(0, lenSoundfiles-1)
+		fname = (soundFiles[fnumber]).replace(&apos;\\&apos;,&apos;\\\\&apos;)
+
+		start = random.uniform(0, 20) 		#start into output file
+#		start = random.randint(0, 20)		#essentially sequential seconds
+		skip = random.uniform(0, 100.0)		
+		skip = skip*0.01 			#skip random 0 - 1 for skip into readfile
+		duration = random.uniform(0.01, RndRgD)	#random duration
+		pitch = random.uniform(1.0, RndRgP) 		
+
+#		scoreText += &quot;i2 &quot; + str(start) + &quot; &quot; + str(duration) + &quot; &quot; + str(skip) + &quot; \&quot;&quot; + str(fname) + &quot;\&quot; \n&quot;
+		scoreText += &quot;i2 &quot; + str(start) + &quot; &quot; + str(duration) + &quot; &quot; + str(skip) + &quot; \&quot;&quot; + str(fname) + &quot;\&quot;&quot; + str(pitch) + &quot;  \n&quot;
+#		scoreText += &quot;i2 {0} {1} {2} \&quot;{3}\&quot; {4} \n&quot;.format(start, duration, skip, fname, pitch) - very new
+#		scoreText += &quot;i2 %f %f %f \&quot;%s\&quot; %f \n&quot;%(start, duration, skip, fname, pitch) 
+		
+	return scoreText
+     
+     
+#score = myscore(500) 
+#################################################################
+
+
+def articulate(numnotes, duration1, curve):
+	scoreText = &quot;;using sin for accel&quot; + &quot; \n&quot;
+	note=0
+	start=0
+
+	soundFiles = glob.glob(basepath+&apos;*.wav&apos;)
+
+	lenSoundfiles = len(soundFiles)
+	
+	
+	for i in range (numnotes):
+		fnumber = random.randint(0, lenSoundfiles-1)
+		fname = (soundFiles[fnumber]).replace(&apos;\\&apos;,&apos;\\\\&apos;)
+
+		increment = 1.0/(numnotes)	 
+		note += increment
+		start = math.pow (note, curve) 
+
+		skip = random.uniform(0, 100.0)		
+		skip = skip*0.01 			#skip random 0 - 1 for skip into readfile
+		duration = random.uniform(0.5, RndRgD)	#random duration
+		pitch = random.uniform(1.0,RndRgP) 
+
+		scoreText += &quot;i2 &quot; + str(start) + &quot; &quot; + str(duration) + &quot; &quot; + str(skip) + &quot; \&quot;&quot; + str(fname) + &quot;\&quot;&quot; + str(pitch) + &quot;  \n&quot;
+	
+	return scoreText
+     
+#score = articulate(100, 1, 4) 
+#################################################################
+
+def regulator(numnotes):
+	scoreText = &quot;;very regular&quot; + &quot; \n&quot;
+	note=0
+	start=0
+        soundFiles = glob.glob(basepath+&apos;*.wav&apos;)
+        lenSoundfiles = len(soundFiles)
+	
+	
+	for i in range (numnotes):
+                #check random.choice(seq) in python documentation
+		fnumber = random.randint(0, lenSoundfiles-1)
+		fname = os.path.abspath(soundFiles[fnumber]).replace(&apos;\\&apos;,&apos;\\\\&apos;)
+
+		increment = 1.0/(numnotes)	 
+		start += increment
+		
+		skip = random.uniform(0, 100.0)		
+		skip = skip*0.01 			#skip random 0 - 1 for skip into readfile
+
+		duration = random.uniform(0.001, RndRgD)	#random duration
+#		duration = increment * 2.2
+		pitch = random.uniform(3.0,RndRgP) 
+
+		scoreText += &quot;i2 &quot; + str(start) + &quot; &quot; + str(duration) + &quot; &quot; + str(skip) + &quot; \&quot;&quot; + str(fname) + &quot;\&quot;&quot; + str(pitch) + &quot;  \n&quot;
+	
+	return scoreText
+     
+#score = regulator(300) 
+
+
+if scoreState == 1 :
+    
+    score = myscore(density)
+
+
+
+elif scoreState == 2 :
+
+    score = articulate(density,1 ,4)
+
+
+
+elif scoreState == 3 :
+
+    score = regulator(density)
+
+
+else:
+
+    score = 0 </code>
+      <commandLine/>
+      <isExternal>false</isExternal>
+      <graphicInterface editEnabled='false'>
+        <gridSettings>
+          <width>15</width>
+          <height>15</height>
+          <gridStyle>DOT</gridStyle>
+          <snapGridEnabled>true</snapGridEnabled>
+        </gridSettings>
+        <bsbObject type='blue.orchestra.blueSynthBuilder.BSBTextField'>
+          <objectName>txtfld</objectName>
+          <x>30</x>
+          <y>135</y>
+          <value>&apos;E:/soundfiles/counterattack/zipandneck/&apos;</value>
+          <textFieldWidth>500</textFieldWidth>
+        </bsbObject>
+        <bsbObject type='blue.orchestra.blueSynthBuilder.BSBDropdown'>
+          <objectName>scoreState</objectName>
+          <x>405</x>
+          <y>210</y>
+          <automationAllowed>true</automationAllowed>
+          <bsbDropdownItemList>
+            <bsbDropdownItem uniqueId='971831774'>
+              <name>void</name>
+              <value>1</value>
+            </bsbDropdownItem>
+            <bsbDropdownItem uniqueId='971831775'>
+              <name>Score</name>
+              <value>2</value>
+            </bsbDropdownItem>
+            <bsbDropdownItem uniqueId='971831776'>
+              <name>Articulate</name>
+              <value>3</value>
+            </bsbDropdownItem>
+            <bsbDropdownItem uniqueId='1026988736'>
+              <name>regulator</name>
+              <value>4</value>
+            </bsbDropdownItem>
+          </bsbDropdownItemList>
+          <selectedIndex>1</selectedIndex>
+          <randomizable>true</randomizable>
+        </bsbObject>
+        <bsbObject type='blue.orchestra.blueSynthBuilder.BSBKnob' version='2'>
+          <objectName>rndRangeP</objectName>
+          <x>30</x>
+          <y>165</y>
+          <automationAllowed>true</automationAllowed>
+          <minimum>0.0</minimum>
+          <maximum>10.0</maximum>
+          <value>1.0</value>
+          <knobWidth>60</knobWidth>
+          <randomizable>true</randomizable>
+        </bsbObject>
+        <bsbObject type='blue.orchestra.blueSynthBuilder.BSBKnob' version='2'>
+          <objectName>rndRangeD</objectName>
+          <x>150</x>
+          <y>165</y>
+          <automationAllowed>true</automationAllowed>
+          <minimum>0.0</minimum>
+          <maximum>1.0</maximum>
+          <value>0.16982839</value>
+          <knobWidth>60</knobWidth>
+          <randomizable>true</randomizable>
+        </bsbObject>
+        <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+          <objectName></objectName>
+          <x>134</x>
+          <y>255</y>
+          <label>Random Duration</label>
+        </bsbObject>
+        <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+          <objectName></objectName>
+          <x>30</x>
+          <y>255</y>
+          <label>Random Pitch</label>
+        </bsbObject>
+        <bsbObject type='blue.orchestra.blueSynthBuilder.BSBKnob' version='2'>
+          <objectName>density</objectName>
+          <x>270</x>
+          <y>165</y>
+          <automationAllowed>true</automationAllowed>
+          <minimum>40.0</minimum>
+          <maximum>1000.0</maximum>
+          <value>153.18701</value>
+          <knobWidth>60</knobWidth>
+          <randomizable>true</randomizable>
+        </bsbObject>
+        <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+          <objectName></objectName>
+          <x>278</x>
+          <y>255</y>
+          <label>Density</label>
+        </bsbObject>
+        <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+          <objectName></objectName>
+          <x>393</x>
+          <y>179</y>
+          <label>Algorithm Selector</label>
+        </bsbObject>
+        <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+          <objectName></objectName>
+          <x>30</x>
+          <y>45</y>
+          <label>&lt;html&gt;&lt;font size=&quot;+3&quot;&gt;&lt;b&gt;sfFolderMangler&lt;/b&gt;&lt;/font&gt;&lt;/html&gt;</label>
+        </bsbObject>
+        <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+          <objectName></objectName>
+          <x>285</x>
+          <y>105</y>
+          <label>for windows must have / especially at end of line in &apos; &apos; </label>
+        </bsbObject>
+      </graphicInterface>
+      <presetGroup name='Presets'/>
+      <syntaxType>Python</syntaxType>
+    </soundObject>
+  </soundObjectLibrary>
+  <globalOrcSco>
+    <globalOrc></globalOrc>
+    <globalSco></globalSco>
+  </globalOrcSco>
+  <opcodeList/>
+  <liveData>
+    <commandLine>csound -Wdo devaudio -L stdin</commandLine>
+    <commandLineEnabled>false</commandLineEnabled>
+    <commandLineOverride>false</commandLineOverride>
+    <liveObjectBins columns='1' rows='8'>
+      <bin>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+      </bin>
+    </liveObjectBins>
+    <liveObjectSetList/>
+    <repeat>4</repeat>
+    <tempo>60</tempo>
+  </liveData>
+  <score>
+    <tempo>
+      <enabled>false</enabled>
+      <visible>false</visible>
+      <line name='' version='2' max='240.0' min='30.0' resolution='-1.0' color='-8355712' rightBound='false' endPointsLinked='false'>
+        <linePoint x='0.0' y='60.0'/>
+      </line>
+    </tempo>
+    <timeState>
+      <pixelSecond>12</pixelSecond>
+      <snapEnabled>false</snapEnabled>
+      <snapValue>1.0</snapValue>
+      <timeDisplay>0</timeDisplay>
+      <timeUnit>5</timeUnit>
+    </timeState>
+    <noteProcessorChain/>
+    <soundObject type='blue.soundObject.PolyObject'>
+      <subjectiveDuration>2.0</subjectiveDuration>
+      <startTime>0.0</startTime>
+      <name>root</name>
+      <backgroundColor>-10066279</backgroundColor>
+      <timeBehavior>0</timeBehavior>
+      <noteProcessorChain/>
+      <isRoot>true</isRoot>
+      <defaultHeightIndex>0</defaultHeightIndex>
+      <timeState>
+        <pixelSecond>64</pixelSecond>
+        <snapEnabled>false</snapEnabled>
+        <snapValue>1.0</snapValue>
+        <timeDisplay>0</timeDisplay>
+        <timeUnit>5</timeUnit>
+      </timeState>
+      <soundLayer name='' muted='false' solo='false' heightIndex='2'>
+        <noteProcessorChain/>
+        <soundObject type='blue.soundObject.Instance'>
+          <subjectiveDuration>24.25</subjectiveDuration>
+          <startTime>0.0</startTime>
+          <name>PythonObject</name>
+          <backgroundColor>-12566464</backgroundColor>
+          <timeBehavior>0</timeBehavior>
+          <noteProcessorChain/>
+          <soundObjectReference soundObjectLibraryID='919503161'/>
+        </soundObject>
+      </soundLayer>
+    </soundObject>
+    <soundObject type='blue.soundObject.PolyObject'>
+      <subjectiveDuration>2.0</subjectiveDuration>
+      <startTime>0.0</startTime>
+      <name>SoundObject Layer Group</name>
+      <backgroundColor>-10066279</backgroundColor>
+      <timeBehavior>0</timeBehavior>
+      <noteProcessorChain/>
+      <isRoot>true</isRoot>
+      <defaultHeightIndex>0</defaultHeightIndex>
+      <timeState>
+        <pixelSecond>64</pixelSecond>
+        <snapEnabled>false</snapEnabled>
+        <snapValue>1.0</snapValue>
+        <timeDisplay>0</timeDisplay>
+        <timeUnit>5</timeUnit>
+      </timeState>
+      <soundLayer name='' muted='false' solo='false' heightIndex='2'>
+        <noteProcessorChain/>
+      </soundLayer>
+    </soundObject>
+  </score>
+  <scratchPadData>
+    <isWordWrapEnabled>true</isWordWrapEnabled>
+    <scratchText/>
+  </scratchPadData>
+  <noteProcessorChainMap/>
+  <renderStartTime>0.0</renderStartTime>
+  <renderEndTime>24.583334</renderEndTime>
+  <markersList/>
+  <loopRendering>false</loopRendering>
+  <midiInputProcessor>
+    <keyMapping>PCH</keyMapping>
+    <velMapping>MIDI</velMapping>
+    <pitchConstant/>
+    <ampConstant/>
+    <scale>
+      <scaleName>12TET</scaleName>
+      <baseFrequency>261.62558</baseFrequency>
+      <octave>2.0</octave>
+      <ratios>
+        <ratio>1.0</ratio>
+        <ratio>1.0594631</ratio>
+        <ratio>1.122462</ratio>
+        <ratio>1.1892071</ratio>
+        <ratio>1.2599211</ratio>
+        <ratio>1.3348398</ratio>
+        <ratio>1.4142135</ratio>
+        <ratio>1.4983071</ratio>
+        <ratio>1.587401</ratio>
+        <ratio>1.6817929</ratio>
+        <ratio>1.7817974</ratio>
+        <ratio>1.8877486</ratio>
+      </ratios>
+    </scale>
+  </midiInputProcessor>
+</blueData>

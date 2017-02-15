@@ -1,0 +1,25 @@
+#N canvas 833 233 656 601 10;
+#X obj 21 86 notein;
+#X obj 82 87 makenote;
+#X obj 21 125 usss.dynamicsampler myds;
+#X obj 239 204 s myds.startpos;
+#X floatatom 239 177 5 0 1 0 - - -, f 5;
+#X obj 242 133 hsl 128 15 0 127 0 0 empty empty start_position_in_file
+-2 -8 0 10 -262144 -1 -1 7800 1;
+#X obj 240 155 / 127;
+#X obj 21 316 usss.output myout;
+#X text 143 105 live audio;
+#X text 20 17 dynamic sampler:;
+#X text 228 311 this takes a stereo audio file. notes play from the
+start at present 10 notes poly;
+#X msg 83 58 60 100 1000;
+#X connect 0 0 2 0;
+#X connect 0 1 2 1;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 2 0 7 0;
+#X connect 2 1 7 1;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 11 0 1 0;

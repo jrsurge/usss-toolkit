@@ -1,0 +1,15 @@
+#N canvas 220 209 708 561 10;
+#X obj 56 336 usss.output out;
+#X obj 56 107 noise~;
+#X msg 269 378 \; pd dsp \$1;
+#X obj 269 337 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 279 185 A Time-dependant filter sweeper with adjustable speed
+\, depth \, pitch and Q.;
+#X text 278 240 Available in mono (usss.filtersweep) and Stereo (usss.filtersweepst)
+;
+#X obj 57 164 usss.filtersweepst filter;
+#X connect 1 0 6 0;
+#X connect 3 0 2 0;
+#X connect 6 0 0 0;
+#X connect 6 0 0 1;

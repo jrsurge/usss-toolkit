@@ -1,0 +1,96 @@
+#N canvas 226 34 1637 853 10;
+#X declare -path ../ussstools;
+#X obj 114 170 usss.fftfilter8 myf8;
+#X obj 116 22 usss.sfplay mysf;
+#X obj 372 27 declare -path ../ussstools;
+#X obj 114 572 usss.output8 my8out;
+#X obj 1042 172 s myf8.spacing;
+#X obj 880 88 s myf8.startrandom;
+#X obj 1041 87 s myf8.randomspeed;
+#X floatatom 1041 60 5 0 0 0 - - -, f 5;
+#X obj 880 60 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 1088 61 randomly fill the filters;
+#X obj 878 142 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 1042 140 5 0 0 0 - - -, f 5;
+#X obj 878 172 s myf8.makespaces;
+#X text 1088 140 separate filters by X;
+#X obj 880 217 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 1045 212 5 0 0 0 - - -, f 5;
+#X text 1092 211 separate filters by blocks of X;
+#X obj 880 259 s myf8.blockfilter;
+#X obj 1045 260 s myf8.blocksize;
+#X obj 496 628 s myf8.shepfreqgo;
+#X obj 629 629 s myf8.shepfreq;
+#X obj 498 757 s pg;
+#X obj 759 628 s myf8.mainfreq;
+#X obj 496 589 tgl 15 0 empty empty Start 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 629 594 5 0 0 1 Scroll_rate - -, f 5;
+#X obj 498 700 tgl 15 0 empty empty invert_waveshape 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 759 599 5 0 0 1 number_of_wavecycles - -, f 5;
+#X obj 653 756 s myf8.filtercontrol;
+#X msg 653 679 1;
+#X msg 654 715 2;
+#X obj 430 137 usss.makearrays myf8;
+#X obj 431 159 usss.makearraysvar myf8 myf9 myf10 myf11;
+#X obj 436 412 usss.fftfilter myf8;
+#X obj 647 410 usss.fftfilter myf9;
+#X obj 857 410 usss.fftfilter myf10;
+#X obj 1062 405 usss.fftfilter myf11;
+#X text 687 716 use all arrays in a 2in8out array (far left);
+#X text 687 680 use separate arrays for an N channel soundfile to stereo
+pairs of filters;
+#X obj 436 365 r~ audio.1;
+#X obj 767 373 r~ audio.4;
+#X obj 647 373 r~ audio.3;
+#X obj 522 364 r~ audio.2;
+#X obj 860 380 r~ audio.5;
+#X obj 975 377 r~ audio.6;
+#X obj 1060 373 r~ audio.7;
+#X obj 1175 370 r~ audio.8;
+#X text 449 74 use to spread the frequency spectrum of stereo or multi-channel
+files over a multi-channel space (normally 8) but can be varied. (Complex
+help);
+#X obj 426 205 usss.Nchanplay audio;
+#X connect 0 0 3 0;
+#X connect 0 1 3 1;
+#X connect 0 2 3 2;
+#X connect 0 3 3 3;
+#X connect 0 4 3 4;
+#X connect 0 5 3 5;
+#X connect 0 6 3 6;
+#X connect 0 7 3 7;
+#X connect 1 0 0 0;
+#X connect 1 1 0 1;
+#X connect 7 0 6 0;
+#X connect 8 0 5 0;
+#X connect 10 0 12 0;
+#X connect 11 0 4 0;
+#X connect 14 0 17 0;
+#X connect 15 0 18 0;
+#X connect 23 0 19 0;
+#X connect 24 0 20 0;
+#X connect 25 0 21 0;
+#X connect 26 0 22 0;
+#X connect 28 0 27 0;
+#X connect 29 0 27 0;
+#X connect 32 0 3 0;
+#X connect 32 1 3 1;
+#X connect 33 0 3 2;
+#X connect 33 1 3 3;
+#X connect 34 0 3 4;
+#X connect 34 1 3 5;
+#X connect 35 0 3 6;
+#X connect 35 1 3 7;
+#X connect 38 0 32 0;
+#X connect 39 0 33 1;
+#X connect 40 0 33 0;
+#X connect 41 0 32 1;
+#X connect 42 0 34 0;
+#X connect 43 0 34 1;
+#X connect 44 0 35 0;
+#X connect 45 0 35 1;

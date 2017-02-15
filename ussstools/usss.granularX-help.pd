@@ -1,0 +1,21 @@
+#N canvas 707 406 786 453 10;
+#X obj -643 426 dac~;
+#X obj -720 11 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg -720 57 \; pd dsp \$1;
+#X obj -645 13 usss.granularX gs 1;
+#X text -433 29 usss.granularX:;
+#X text -431 60 multichannel multi-grain tool (an extenstion of usss.granular).
+This works in the same way as usss.granular but now you can change
+the number of grains and number of channels.;
+#X text -430 124 if the toggles are at 1 (crossed) \, then default
+value are bing used (10 grains and 1 pair of channels);
+#X text -430 162 numchans is pairs of channels so 1 = stereo \, 4 =
+eight channel;
+#X text -429 205 to vary numgrains or numchans make sure the toggles
+are set to 0 then enter a number and finally hit makegrains.;
+#X text -429 249 usss.granularX is instantiated as follows;
+#X text -430 268 <usss.granularX> <name> <number of pairs (1 -4);
+#X connect 1 0 2 0;
+#X connect 3 0 0 0;
+#X connect 3 1 0 1;

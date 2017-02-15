@@ -1,0 +1,11 @@
+#N canvas 266 342 438 197 10;
+#X obj 11 14 usss.sinusoid sine;
+#X obj 12 139 dac~;
+#X text 223 24 A simple sine wave oscillator;
+#X text 223 48 with amplitude control.;
+#X obj 223 86 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 223 133 \; pd dsp \$1;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 4 0 5 0;

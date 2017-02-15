@@ -1,0 +1,23 @@
+#N canvas 501 410 726 407 10;
+#X floatatom 418 124 5 0 0 0 - - -;
+#X floatatom 418 243 5 0 0 0 - - -;
+#X floatatom 157 243 5 0 0 0 - - -;
+#X obj 157 218 receive receiver1;
+#X floatatom 286 243 5 0 0 0 - - -;
+#X floatatom 159 151 5 0 0 0 - - -;
+#X obj 159 172 send receiver1;
+#X floatatom 286 151 5 0 0 0 - - -;
+#X obj 422 172 hsl 128 15 0 127 0 0 receiver2 empty empty -2 -8 0 10
+-262144 -1 -1 0 1;
+#X obj 421 264 hsl 128 15 0 127 0 0 empty receiver2 empty -2 -8 0 10
+-262144 -1 -1 1300 1;
+#X obj 286 172 s receiver1;
+#X obj 286 218 r receiver1;
+#X obj 418 144 s receiver2;
+#X obj 418 219 r receiver2;
+#X connect 0 0 12 0;
+#X connect 3 0 2 0;
+#X connect 5 0 6 0;
+#X connect 7 0 10 0;
+#X connect 11 0 4 0;
+#X connect 13 0 1 0;

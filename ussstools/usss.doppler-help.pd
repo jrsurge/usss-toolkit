@@ -1,0 +1,53 @@
+#N canvas 217 284 776 629 10;
+#X obj 158 131 sel 1;
+#X obj 159 87 metro 500;
+#X obj 159 111 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 159 61 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 156 179 phasor~ 440;
+#X msg 156 155 400;
+#X msg 188 155 440;
+#X msg 377 145 100 1 10000;
+#X msg 292 145 -100 1 10000;
+#X text 294 123 accepts lists as x y and ramp time;
+#X msg 502 194 100 1 10000;
+#X msg 417 194 -100 1 10000;
+#X obj 421 245 s dop1.traj;
+#X text 503 243 or send to name.traj;
+#X text 176 60 switch on here;
+#X obj 155 207 usss.doppler dop1;
+#X obj 154 517 *~ 0.1;
+#X obj 351 517 *~ 0.1;
+#X obj 236 566 dac~;
+#X text 163 461 Audio Left Out;
+#X text 356 461 Audio Right Out;
+#X text 279 70 This object implements a doppler shift simulator. It
+can apply a doppler shift to the incoming signal. The doppler effect
+is simulated using a variable delay line.;
+#X text 381 316 The X/Y control adjusts the x and y position of the
+virtual sound source. The center of the graph represents the listeners
+position.;
+#X text 381 412 ramp: adjusts the speed of linear ramping between positions.
+Smaller numbers provide a faster reaction but also result in a grainier
+calculation.;
+#X obj 54 64 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 54 108 \; pd dsp \$1;
+#X connect 0 0 5 0;
+#X connect 0 1 6 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 1 0;
+#X connect 4 0 15 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 7 0 15 1;
+#X connect 8 0 15 1;
+#X connect 10 0 12 0;
+#X connect 11 0 12 0;
+#X connect 15 0 16 0;
+#X connect 15 1 17 0;
+#X connect 16 0 18 0;
+#X connect 17 0 18 1;
+#X connect 24 0 25 0;

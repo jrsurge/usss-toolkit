@@ -1,0 +1,38 @@
+#N canvas 366 60 1015 931 10;
+#X declare -path ../ussstools;
+#X obj 751 9 declare -path ../ussstools;
+#X obj 378 8 usss.sfplay player;
+#X obj 387 759 usss.output out;
+#X obj 380 556 usss.mixer mix;
+#X obj 505 217 usss.reverb verb1;
+#X obj 87 217 usss.bandpass band;
+#X obj 719 249 usss.filtersweepst sweep;
+#X obj 295 217 usss.pitchshift pitch;
+#X text 587 59 select an audio file using the "select file" and begin
+playback using the play toggle;
+#X text 620 590 The four signals are summed here as follows: 1 Bandpass
+2 Pitchshift 3 Reverb 4 Sweeping filter;
+#X text 594 809 Here the DSP is controlled and the output can be recorded
+as per the usss.output help file.;
+#X text 24 48 A basic example of audio manipulation using ussstools.
+Please ensure that DSP is on on ussss.output and be aware that several
+of the modules load with 0 gain.;
+#X text 23 26 READ ME:;
+#X connect 1 0 5 0;
+#X connect 1 0 4 0;
+#X connect 1 0 6 0;
+#X connect 1 0 7 0;
+#X connect 1 1 5 1;
+#X connect 1 1 4 1;
+#X connect 1 1 6 1;
+#X connect 1 1 7 1;
+#X connect 3 0 2 0;
+#X connect 3 1 2 1;
+#X connect 4 0 3 4;
+#X connect 4 1 3 5;
+#X connect 5 0 3 0;
+#X connect 5 1 3 1;
+#X connect 6 0 3 6;
+#X connect 6 1 3 7;
+#X connect 7 0 3 2;
+#X connect 7 1 3 3;

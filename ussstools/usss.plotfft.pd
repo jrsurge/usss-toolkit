@@ -1,0 +1,17 @@
+#N canvas 510 180 702 512 10;
+#X obj 589 169 block~ 512;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-fftarray 512 float 2;
+#X coords 0 1 511 0 200 140 1;
+#X restore 105 127 graph;
+#X obj 447 143 inlet~;
+#X obj 448 236 rfft~;
+#X obj 356 407 tabwrite~ \$0-fftarray;
+#X obj 411 368 bang~;
+#X obj 356 304 expr~ sqrt(($v1 * $v2) + ($v2 * $v2)) / 512;
+#X connect 2 0 3 0;
+#X connect 3 0 6 0;
+#X connect 3 1 6 1;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X coords 0 -1 1 1 210 170 1 100 100;

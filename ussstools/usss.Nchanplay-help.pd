@@ -1,0 +1,25 @@
+#N canvas 573 50 947 675 10;
+#X declare -path ../ussstools;
+#X obj 276 196 declare -path ../ussstools;
+#X obj 22 326 usss.output6 myout6;
+#X obj 21 293 r~ audio.1;
+#X obj 103 293 r~ audio.2;
+#X obj 181 294 r~ audio.3;
+#X obj 263 292 r~ audio.4;
+#X obj 342 293 r~ audio.5;
+#X obj 425 295 r~ audio.6;
+#X obj 19 45 usss.Nchanplay audio;
+#X obj 18 155 usss.Nchanplay test;
+#X obj 8 266 r~ test.1;
+#X obj 83 265 r~ test.2;
+#X text 290 73 instanciate each version of usss.Nchanplay <name> and
+set receives <name>.1 / 2 / etc. to receive that channel A six channel
+receive will take a stereo file but naming allows for mixing;
+#X connect 2 0 1 0;
+#X connect 3 0 1 1;
+#X connect 4 0 1 2;
+#X connect 5 0 1 3;
+#X connect 6 0 1 4;
+#X connect 7 0 1 5;
+#X connect 10 0 1 0;
+#X connect 11 0 1 1;

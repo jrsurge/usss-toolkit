@@ -1,0 +1,12 @@
+#N canvas 43 202 423 740 10;
+#X declare -path ../../ussstools;
+#X obj 3 368 usss.output4 myout;
+#X obj 12 142 usss.sfplay mysfplay;
+#X obj 208 111 usss.sfplay4 mysf4;
+#X obj 174 65 declare -path ../../ussstools;
+#X connect 1 0 0 0;
+#X connect 1 1 0 1;
+#X connect 2 0 0 0;
+#X connect 2 1 0 1;
+#X connect 2 2 0 2;
+#X connect 2 3 0 3;

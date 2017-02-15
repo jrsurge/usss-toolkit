@@ -1,0 +1,16 @@
+#N canvas 480 210 526 522 10;
+#X obj 132 190 usss.input input;
+#X obj 171 314 *~ 0.3;
+#X obj 250 313 *~ 0.3;
+#X obj 206 382 dac~;
+#X msg 376 239 \; pd dsp \$1;
+#X obj 376 201 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 83 143 This module handles live audio input \, please make
+sure;
+#X text 125 160 your settings in Media-Audio are correct!;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 3 1;
+#X connect 5 0 4 0;

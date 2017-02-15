@@ -1,0 +1,14 @@
+#N canvas 0 0 659 308 10;
+#X obj 43 49 usss.sfplay mysf;
+#X obj 44 207 dac~;
+#X text 260 57 usss.sfplay <name>;
+#X text 262 120 hit bang to bring up a dialog box to select your stereo
+soundfile;
+#X text 261 149 hit <name>.play to start soundfile playback;
+#X text 262 176 hit <name>.play to start soundfile playback;
+#X obj 468 23 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 468 67 \; pd dsp \$1;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 6 0 7 0;

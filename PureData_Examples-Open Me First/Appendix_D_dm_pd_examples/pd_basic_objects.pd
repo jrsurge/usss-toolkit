@@ -1,0 +1,22 @@
+#N canvas 913 315 450 300 10;
+#X floatatom 151 95 5 0 0 0 - - -;
+#X obj 72 235 print;
+#X msg 149 35 my message;
+#X msg 151 67 a different message;
+#X text 203 99 a number box;
+#X text 114 238 a message box;
+#X obj 151 124 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 186 128 a bang button;
+#X obj 151 150 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 191 154 a toggle;
+#X obj 154 176 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 1100 1;
+#X text 291 175 an hslider;
+#X connect 0 0 1 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 6 0 1 0;
+#X connect 8 0 1 0;
+#X connect 10 0 1 0;

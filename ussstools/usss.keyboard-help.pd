@@ -1,0 +1,10 @@
+#N canvas 371 127 510 518 10;
+#X obj 37 111 usss.keyboard;
+#X floatatom 37 316 5 0 0 0 - - -;
+#X floatatom 230 316 5 0 0 0 - - -;
+#X text 267 118 A GUI keyboard that ouputs MIDI note;
+#X text 267 141 number and a velocity & note on/off;
+#X text 268 160 pair. Velocity is defined by the;
+#X text 268 181 position of click on the key.;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;

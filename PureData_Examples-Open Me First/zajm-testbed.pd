@@ -1,0 +1,64 @@
+#N canvas 772 14 1036 882 10;
+#X declare -path ../ussstools;
+#X obj 253 63 declare -path ../ussstools;
+#X text 41 31 Sound file in and out. Page 41;
+#X obj 273 105 usss.input myin;
+#X obj 272 231 usss.reverb myrev;
+#X obj 520 234 usss.combplayer mycp;
+#X obj 578 155 s mycp.note;
+#X obj 579 103 makenote 100 60;
+#X obj 580 128 pack 0 0;
+#X obj 579 73 random 100;
+#X obj 579 47 metro 100;
+#X obj 576 20 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X floatatom 632 18 5 0 0 0 - - -, f 5;
+#X floatatom 676 77 5 0 0 0 - - -, f 5;
+#X obj 46 463 usss.multipan8 mypan;
+#X obj 408 565 s mypan.speakerpostions;
+#X msg 408 529 0 1 1 1 0 0.6 1 0.6 0 0.3 1 0.3 0 0 1 0;
+#X text 378 486 coordinates go from 0 0 (top left) to top right \,
+mid left \, mid right \, lower left \, lower right \, bottom left \,
+bottom right;
+#X text 380 590 order of creation is important as it is linked to outlets
+;
+#X obj 411 646 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 411 680 metro 200;
+#X obj 411 714 random 100;
+#X obj 411 742 usss.zmap 0 100 -1 2;
+#X obj 411 776 pack 0 0;
+#X obj 411 810 line;
+#X obj 411 845 send mypan.direction;
+#X text 492 645 start the circle (orange toggle) then add this to randomise
+the panning;
+#X obj 46 735 usss.output6 my6 out;
+#X connect 2 1 3 1;
+#X connect 2 1 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 4 1;
+#X connect 4 0 13 0;
+#X connect 4 1 13 1;
+#X connect 6 0 7 0;
+#X connect 6 1 7 1;
+#X connect 7 0 5 0;
+#X connect 8 0 6 0;
+#X connect 9 0 8 0;
+#X connect 10 0 9 0;
+#X connect 11 0 9 1;
+#X connect 12 0 6 2;
+#X connect 13 0 26 0;
+#X connect 13 1 26 1;
+#X connect 13 2 26 2;
+#X connect 13 3 26 3;
+#X connect 13 4 26 4;
+#X connect 13 5 26 5;
+#X connect 13 6 26 0;
+#X connect 13 7 26 1;
+#X connect 15 0 14 0;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 20 0 21 0;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;

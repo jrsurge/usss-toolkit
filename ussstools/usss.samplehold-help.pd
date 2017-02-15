@@ -1,0 +1,12 @@
+#N canvas 794 357 649 673 10;
+#X obj 29 324 usss.output out;
+#X obj 261 324 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 261 363 \; pd dsp \$1;
+#X obj 30 44 usss.samplehold sah;
+#X text 266 138 An Audio sample and hold module that works in chunks
+of samples. Similiar to usss.granular. Can either open an audio files
+or record a fragment.;
+#X connect 1 0 2 0;
+#X connect 3 0 0 0;
+#X connect 3 1 0 1;

@@ -1,0 +1,58 @@
+#N canvas 2074 342 979 504 10;
+#X obj 67 53 ctlin;
+#X obj 35 107 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -6 0
+10 -262144 -1 -1 65 256;
+#X obj 103 107 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -6 0
+10 -262144 -1 -1 81 256;
+#X text 235 49 make sure you have alsa-midi and bcf2000 - pd connected
+;
+#X obj 35 219 route 81 82 83 84 85 86 87 88;
+#X obj 272 219 route 1 2 3 4 5 6 7 8;
+#X obj 59 162 swap;
+#X floatatom 29 253 5 0 0 0 - - -;
+#X floatatom 43 295 5 0 0 0 - - -;
+#X floatatom 60 276 5 0 0 0 - - -;
+#X floatatom 87 298 5 0 0 0 - - -;
+#X floatatom 100 273 5 0 0 0 - - -;
+#X floatatom 133 297 5 0 0 0 - - -;
+#X floatatom 152 272 5 0 0 0 - - -;
+#X floatatom 187 273 5 0 0 0 - - -;
+#X obj 59 134 pack 0 0;
+#X obj 59 188 pack;
+#X text 636 167 bcfader = preset number bcdial = preset dial bccontrol
+1 - 16 = 1 - 8 fader 9 - 16 dial;
+#X obj 160 372 bcf2000fader 0 127 0 1 f5;
+#X obj 485 370 bcf2000fader 0 127 0 1 f7;
+#X obj 644 371 bcf2000fader 0 127 0 1 f8;
+#X text 322 197 dials;
+#X text 102 198 faders;
+#X obj 549 341 bcf2000fader 0 127 0 10000 f4;
+#X obj 320 373 bcf2000fader 0 127 0 4 f6;
+#X obj 30 341 bcf2000fader 0 127 -200 200 f1;
+#X obj 208 341 bcf2000fader 0 127 5 100 f2;
+#X obj 388 342 bcf2000fader 0 127 2 130 f3;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 1 0 15 0;
+#X connect 2 0 15 1;
+#X connect 4 0 7 0;
+#X connect 4 1 8 0;
+#X connect 4 2 9 0;
+#X connect 4 3 10 0;
+#X connect 4 4 11 0;
+#X connect 4 5 12 0;
+#X connect 4 6 13 0;
+#X connect 4 7 14 0;
+#X connect 4 8 5 0;
+#X connect 6 0 16 0;
+#X connect 6 1 16 1;
+#X connect 7 0 25 0;
+#X connect 8 0 26 0;
+#X connect 9 0 27 0;
+#X connect 10 0 23 0;
+#X connect 11 0 18 0;
+#X connect 12 0 24 0;
+#X connect 13 0 19 0;
+#X connect 14 0 20 0;
+#X connect 15 0 6 0;
+#X connect 16 0 4 0;

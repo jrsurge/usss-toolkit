@@ -1,0 +1,11 @@
+#N canvas 613 469 632 351 10;
+#X obj 3 125 osc~;
+#X obj 93 189 *~;
+#X obj 89 226 outlet~;
+#X obj 3 30 usss.hslider \$1.freq 0 15000 0;
+#X obj 3 65 usss.hslider \$1.amp 0 1 0;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 0 0;
+#X connect 4 1 1 1;
+#X coords 0 -1 1 1 200 100 1 0 0;

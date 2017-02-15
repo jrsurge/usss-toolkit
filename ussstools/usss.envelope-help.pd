@@ -1,0 +1,43 @@
+#N canvas 261 208 1006 680 10;
+#X obj 275 407 dac~;
+#X obj 43 36 noise~;
+#X obj 622 370 *~;
+#X obj 638 315 vline~;
+#X msg 638 289 1 1000 \, 0 1000 1000;
+#X obj 42 157 usss.envelope myenv;
+#X msg 638 260 bang;
+#X text 714 313 ramp up from 0 \, ramp down to 0 in 1000ms;
+#X text 57 422 remember that to draw the envelope you need to grab
+the point 0 \, 0 (bottom left and then draw) - just clicking on the
+array won't work.;
+#X text 185 47 The envelope object provides a graphical amplitude envelope
+for stereo signals. You can use this object to turn constant sounds
+into short bursts.;
+#X text 641 205 the vline~ object is also a method for creating an
+envelope \, it takes a target value \, duration and inital delay. the
+delays are cumulative. click on the help for vline for more info...it's
+not obvious;
+#X text 252 299 total_time: controls the time of the envelope burst.
+Time is specified in milliseconds.;
+#X obj 62 118 throw~ vline;
+#X obj 563 342 catch~ vline;
+#X text 252 248 Draw an envelope shape in the box. Hint \, try to grab
+the line at the base of the box (cursor should change) to draw the
+shape.;
+#X text 252 212 Trigger: causes the envelope to 'fire' which will trigger
+a burst of sound.;
+#X obj 663 29 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 663 73 \; pd dsp \$1;
+#X connect 1 0 5 0;
+#X connect 1 0 12 0;
+#X connect 1 0 5 1;
+#X connect 2 0 0 0;
+#X connect 2 0 0 1;
+#X connect 3 0 2 1;
+#X connect 4 0 3 0;
+#X connect 5 0 0 0;
+#X connect 5 1 0 1;
+#X connect 6 0 4 0;
+#X connect 13 0 2 0;
+#X connect 16 0 17 0;

@@ -1,0 +1,13 @@
+#N canvas 750 65 1146 840 10;
+#X declare -path ../../ussstools;
+#X obj 73 454 usss.output8 myout8;
+#X obj 339 84 declare -path ../../ussstools;
+#X obj 107 40 usss.granularX gs2;
+#X connect 2 0 0 0;
+#X connect 2 1 0 1;
+#X connect 2 2 0 2;
+#X connect 2 3 0 3;
+#X connect 2 4 0 4;
+#X connect 2 5 0 5;
+#X connect 2 6 0 6;
+#X connect 2 7 0 7;

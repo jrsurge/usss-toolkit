@@ -1,0 +1,26 @@
+#N canvas 516 159 1011 807 10;
+#X declare -path ../ussstools;
+#X declare -path E:/USSSTOOLSKIT/ussstools;
+#X declare -path ../../ussstools;
+#X obj 751 9 declare -path ../ussstools;
+#X text 587 59 select an audio file using the "select file" and begin
+playback using the play toggle;
+#X text 13 26 READ ME:;
+#X text 19 55 Here is a blank canvas for you to experiemnt with audio
+file manipulation using the ussstools begin by creating a usss object
+of your choice and connecting the sfplayer to the inlet and the outlets
+to the usss.output. Then select a file using the player and let the
+fun begin!;
+#X obj 703 114 declare -path E:/USSSTOOLSKIT/ussstools;
+#X obj 703 143 declare -path ../../ussstools;
+#X obj 36 137 usss.granularX mg;
+#X obj 36 577 usss.output myout;
+#X text 261 206 usss.granularX tool for stereo granulation load sound
+click make grains;
+#X text 261 257 or \, uncheck mg.numgrains and select number + return
+then click makegrains;
+#X obj 384 392 usss.bandpass mybp;
+#X connect 6 0 10 0;
+#X connect 6 1 10 1;
+#X connect 10 0 7 0;
+#X connect 10 1 7 1;

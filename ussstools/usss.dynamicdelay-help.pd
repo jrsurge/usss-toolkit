@@ -1,0 +1,24 @@
+#N canvas 605 70 783 894 10;
+#X declare -lib iemgui;
+#X declare -path ../../ussstools;
+#X obj 45 574 usss.output myout;
+#X obj 44 16 usss.sfplay mysf;
+#X text 256 175 A dynamic bank of delays with variable times and levels.
+;
+#X text 255 197 The delays have 3 directional options including Accelerating
+\, Deccelerating and Regular (equally spaced);
+#X text 254 228 The make delay button renders your chosen number of
+delays ensure you press make_delays to render your chosen number.;
+#X text 256 273 Y - Closeness of delays;
+#X text 255 313 X - Delay time;
+#X text 268 475 The further 3 controls are: Feedback Amount \, Delay
+Volume and a Dry Original sound volume.;
+#X obj 373 45 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 373 98 \; pd dsp \$1;
+#X obj 45 174 usss.dynamicdelay mydelay;
+#X connect 1 0 10 0;
+#X connect 1 1 10 1;
+#X connect 8 0 9 0;
+#X connect 10 0 0 0;
+#X connect 10 1 0 1;

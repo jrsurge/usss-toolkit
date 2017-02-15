@@ -1,0 +1,28 @@
+#N canvas 487 28 283 251 10;
+#X obj 124 64 until;
+#X msg 124 11 6;
+#X obj 124 96 random 30;
+#X obj 125 120 + 70;
+#X floatatom 186 95 5 0 0 0 - - -;
+#X floatatom 158 119 5 0 0 0 - - -;
+#X obj 125 147 list prepend;
+#X obj 57 190 list append;
+#X obj 57 166 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 210 147 t l;
+#X obj 57 215 print;
+#X obj 124 39 t b f b;
+#X connect 0 0 2 0;
+#X connect 1 0 11 0;
+#X connect 2 0 3 0;
+#X connect 3 0 6 0;
+#X connect 4 0 2 1;
+#X connect 5 0 3 1;
+#X connect 6 0 7 1;
+#X connect 6 0 9 0;
+#X connect 7 0 10 0;
+#X connect 8 0 7 0;
+#X connect 9 0 6 1;
+#X connect 11 0 8 0;
+#X connect 11 1 0 0;
+#X connect 11 2 6 1;

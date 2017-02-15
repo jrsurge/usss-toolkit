@@ -1,0 +1,17 @@
+#N canvas 238 104 773 830 10;
+#X declare -path ../../ussstools;
+#X obj 395 126 usss.varispeed myv;
+#X obj 96 551 usss.output8 myout;
+#X obj 95 165 usss.fftfilter8 f8;
+#X obj 468 355 usss.makearrays f8;
+#X obj 404 91 declare -path ../../ussstools;
+#X connect 0 0 2 0;
+#X connect 0 1 2 1;
+#X connect 2 0 1 0;
+#X connect 2 1 1 1;
+#X connect 2 2 1 2;
+#X connect 2 3 1 3;
+#X connect 2 4 1 4;
+#X connect 2 5 1 5;
+#X connect 2 6 1 6;
+#X connect 2 7 1 7;

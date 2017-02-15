@@ -1,0 +1,13 @@
+#N canvas 253 253 426 214 10;
+#X obj 13 45 usss.zmap 0 1 200 900;
+#X floatatom 13 76 5 0 0 0 - - -;
+#X obj 16 11 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 165 9 A simple version of the MaxMSP zmap;
+#X text 165 28 this object maps one range to another;
+#X text 163 48 creation arguments are:;
+#X text 130 86 input min \, input max \, output min output max;
+#X text 163 122 these can be adjusted with the 4;
+#X text 163 142 four extra inlets;
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;

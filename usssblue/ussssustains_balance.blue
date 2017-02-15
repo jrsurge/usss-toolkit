@@ -1,0 +1,274 @@
+<blueData version='2.1.0'>
+  <projectProperties>
+    <title></title>
+    <author>author</author>
+    <notes></notes>
+    <sampleRate>44100</sampleRate>
+    <ksmps>1</ksmps>
+    <channels>2</channels>
+    <diskSampleRate>44100</diskSampleRate>
+    <diskKsmps>1</diskKsmps>
+    <diskChannels>2</diskChannels>
+    <useAudioOut>true</useAudioOut>
+    <useAudioIn>false</useAudioIn>
+    <useMidiIn>false</useMidiIn>
+    <useMidiOut>false</useMidiOut>
+    <noteAmpsEnabled>true</noteAmpsEnabled>
+    <outOfRangeEnabled>true</outOfRangeEnabled>
+    <warningsEnabled>true</warningsEnabled>
+    <benchmarkEnabled>true</benchmarkEnabled>
+    <advancedSettings></advancedSettings>
+    <completeOverride>false</completeOverride>
+    <fileName></fileName>
+    <askOnRender>false</askOnRender>
+    <diskNoteAmpsEnabled>true</diskNoteAmpsEnabled>
+    <diskOutOfRangeEnabled>true</diskOutOfRangeEnabled>
+    <diskWarningsEnabled>true</diskWarningsEnabled>
+    <diskBenchmarkEnabled>true</diskBenchmarkEnabled>
+    <diskAdvancedSettings></diskAdvancedSettings>
+    <diskCompleteOverride>false</diskCompleteOverride>
+    <diskAlwaysRenderEntireProject>false</diskAlwaysRenderEntireProject>
+    <csladspaSettings>
+      <name/>
+      <maker/>
+      <uniqueId>0</uniqueId>
+      <copyright/>
+      <portDefinitionList/>
+      <enabled>false</enabled>
+    </csladspaSettings>
+  </projectProperties>
+  <arrangement>
+    <instrumentAssignment arrangementId='1' isEnabled='true'>
+      <instrument type='blue.orchestra.BlueSynthBuilder' editEnabled='false'>
+        <name>follower</name>
+        <comment></comment>
+        <globalOrc/>
+        <globalSco/>
+        <instrumentText>afol1, afol2  	diskin2	 &quot;&lt;filefollow&gt;&quot;, &lt;speed1&gt;, 0, &lt;loop1&gt;
+asig1, asig2  	diskin2	 &quot;&lt;fileimpose&gt;&quot;, &lt;speed2&gt;, 0, &lt;loop2&gt;
+aenv1 	follow afol1, .002
+aenv2	follow afol2, .002
+aenv1a	tone	aenv1, 100 ; smooth
+aenv2a	tone	aenv2, 100
+atemp1	= asig1*aenv1a
+atemp2  = asig2*aenv2a
+as1out	balance atemp1, aenv1a
+as2out	balance atemp2, aenv2a
+blueMixerOut	&quot;&lt;route&gt;&quot;, as1out, as2out</instrumentText>
+        <graphicInterface editEnabled='false'>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBFileSelector'>
+            <objectName>filefollow</objectName>
+            <x>36</x>
+            <y>80</y>
+            <fileName></fileName>
+            <textFieldWidth>100</textFieldWidth>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBFileSelector'>
+            <objectName>fileimpose</objectName>
+            <x>226</x>
+            <y>79</y>
+            <fileName></fileName>
+            <textFieldWidth>100</textFieldWidth>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+            <objectName></objectName>
+            <x>62</x>
+            <y>60</y>
+            <label>follow_file</label>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+            <objectName></objectName>
+            <x>253</x>
+            <y>60</y>
+            <label>input_file</label>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBSubChannelDropdown'>
+            <objectName>route</objectName>
+            <x>380</x>
+            <y>79</y>
+            <channelOutput>Master</channelOutput>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBKnob' version='2'>
+            <objectName>speed1</objectName>
+            <x>38</x>
+            <y>117</y>
+            <automationAllowed>true</automationAllowed>
+            <minimum>0.0</minimum>
+            <maximum>5.0</maximum>
+            <value>1.0</value>
+            <knobWidth>60</knobWidth>
+            <randomizable>true</randomizable>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBCheckBox'>
+            <objectName>loop1</objectName>
+            <x>111</x>
+            <y>124</y>
+            <label>loop</label>
+            <selected>false</selected>
+            <randomizable>true</randomizable>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBKnob' version='2'>
+            <objectName>speed2</objectName>
+            <x>230</x>
+            <y>116</y>
+            <automationAllowed>true</automationAllowed>
+            <minimum>0.0</minimum>
+            <maximum>5.0</maximum>
+            <value>1.0</value>
+            <knobWidth>60</knobWidth>
+            <randomizable>true</randomizable>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBCheckBox'>
+            <objectName>loop2</objectName>
+            <x>303</x>
+            <y>123</y>
+            <label>loop</label>
+            <selected>false</selected>
+            <randomizable>true</randomizable>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+            <objectName></objectName>
+            <x>45</x>
+            <y>12</y>
+            <label>&lt;html&gt;&lt;font size=&quot;+3&quot;&gt;&lt;b&gt;Envelope Follower&lt;/b&gt;&lt;/font&gt;&lt;/html&gt;</label>
+          </bsbObject>
+          <bsbObject type='blue.orchestra.blueSynthBuilder.BSBLabel'>
+            <objectName></objectName>
+            <x>379</x>
+            <y>131</y>
+            <label>&lt;html&gt;the input file will be &lt;br&gt; articulated by the follow_file &lt;br&gt; The resulting output is &lt;br&gt; a subtle modulation&lt;/html&gt;</label>
+          </bsbObject>
+        </graphicInterface>
+        <bsbParameterList>
+          <parameter uniqueId='959700527' name='speed1' label='' min='0.0' max='5.0' resolution='-1.0' automationEnabled='false' value='1.0'>
+            <line name='' version='2' max='5.0' min='0.0' resolution='-1.0' color='-8355712' rightBound='false' endPointsLinked='false'>
+              <linePoint x='0.0' y='1.0'/>
+            </line>
+          </parameter>
+          <parameter uniqueId='959700529' name='speed2' label='' min='0.0' max='5.0' resolution='-1.0' automationEnabled='false' value='1.0'>
+            <line name='' version='2' max='5.0' min='0.0' resolution='-1.0' color='-8355712' rightBound='false' endPointsLinked='false'>
+              <linePoint x='0.0' y='1.0'/>
+            </line>
+          </parameter>
+        </bsbParameterList>
+        <presetGroup name='Presets'/>
+        <opcodeList/>
+      </instrument>
+    </instrumentAssignment>
+  </arrangement>
+  <mixer>
+    <enabled>false</enabled>
+    <extraRenderTime>0.0</extraRenderTime>
+    <channelList list='channels'>
+      <channel>
+        <name>1</name>
+        <outChannel>Master</outChannel>
+        <level>0.0</level>
+        <muted>false</muted>
+        <solo>false</solo>
+        <effectsChain bin='pre'/>
+        <effectsChain bin='post'/>
+        <parameter uniqueId='959700517' name='Volume' label='dB' min='-96.0' max='12.0' resolution='-1.0' automationEnabled='false' value='0.0'>
+          <line name='' version='2' max='12.0' min='-96.0' resolution='-1.0' color='-8355712' rightBound='false' endPointsLinked='false'>
+            <linePoint x='0.0' y='0.0'/>
+          </line>
+        </parameter>
+      </channel>
+    </channelList>
+    <channelList list='subChannels'/>
+    <channel>
+      <name>Master</name>
+      <outChannel>Master</outChannel>
+      <level>0.0</level>
+      <muted>false</muted>
+      <solo>false</solo>
+      <effectsChain bin='pre'/>
+      <effectsChain bin='post'/>
+      <parameter uniqueId='959700491' name='Volume' label='dB' min='-96.0' max='12.0' resolution='-1.0' automationEnabled='false' value='0.0'>
+        <line name='' version='2' max='12.0' min='-96.0' resolution='-1.0' color='-8355712' rightBound='false' endPointsLinked='false'>
+          <linePoint x='0.0' y='0.0'/>
+        </line>
+      </parameter>
+    </channel>
+  </mixer>
+  <tables></tables>
+  <soundObjectLibrary/>
+  <globalOrcSco>
+    <globalOrc></globalOrc>
+    <globalSco></globalSco>
+  </globalOrcSco>
+  <opcodeList/>
+  <liveData>
+    <commandLine>csound -Wdo devaudio -L stdin</commandLine>
+    <commandLineEnabled>false</commandLineEnabled>
+    <commandLineOverride>false</commandLineOverride>
+  </liveData>
+  <soundObject type='blue.soundObject.PolyObject'>
+    <subjectiveDuration>2.0</subjectiveDuration>
+    <startTime>0.0</startTime>
+    <name>root</name>
+    <backgroundColor>-10066279</backgroundColor>
+    <timeBehavior>0</timeBehavior>
+    <noteProcessorChain/>
+    <isRoot>true</isRoot>
+    <pixelSecond>64</pixelSecond>
+    <defaultHeightIndex>0</defaultHeightIndex>
+    <snapEnabled>false</snapEnabled>
+    <snapValue>1.0</snapValue>
+    <timeDisplay>0</timeDisplay>
+    <timeUnit>5</timeUnit>
+    <soundLayer name='' muted='false' solo='false' heightIndex='0'>
+      <noteProcessorChain/>
+      <soundObject type='blue.soundObject.GenericScore'>
+        <subjectiveDuration>5.078125</subjectiveDuration>
+        <startTime>0.0</startTime>
+        <name>GenericScore</name>
+        <backgroundColor>-12566464</backgroundColor>
+        <timeBehavior>0</timeBehavior>
+        <noteProcessorChain/>
+        <score>i1 0 2 3 4 5</score>
+      </soundObject>
+    </soundLayer>
+  </soundObject>
+  <scratchPadData>
+    <isWordWrapEnabled>true</isWordWrapEnabled>
+    <scratchText/>
+  </scratchPadData>
+  <noteProcessorChainMap/>
+  <renderStartTime>0.0</renderStartTime>
+  <renderEndTime>5.328125</renderEndTime>
+  <markersList/>
+  <loopRendering>false</loopRendering>
+  <tempo>
+    <enabled>false</enabled>
+    <visible>false</visible>
+    <line name='' version='2' max='240.0' min='30.0' resolution='-1.0' color='-8355712' rightBound='false' endPointsLinked='false'>
+      <linePoint x='0.0' y='60.0'/>
+    </line>
+  </tempo>
+  <midiInputProcessor>
+    <keyMapping>PCH</keyMapping>
+    <velMapping>MIDI</velMapping>
+    <pitchConstant/>
+    <ampConstant/>
+    <scale>
+      <scaleName>12TET</scaleName>
+      <baseFrequency>261.62558</baseFrequency>
+      <octave>2.0</octave>
+      <ratios>
+        <ratio>1.0</ratio>
+        <ratio>1.0594631</ratio>
+        <ratio>1.122462</ratio>
+        <ratio>1.1892071</ratio>
+        <ratio>1.2599211</ratio>
+        <ratio>1.3348398</ratio>
+        <ratio>1.4142135</ratio>
+        <ratio>1.4983071</ratio>
+        <ratio>1.587401</ratio>
+        <ratio>1.6817929</ratio>
+        <ratio>1.7817974</ratio>
+        <ratio>1.8877486</ratio>
+      </ratios>
+    </scale>
+  </midiInputProcessor>
+</blueData>

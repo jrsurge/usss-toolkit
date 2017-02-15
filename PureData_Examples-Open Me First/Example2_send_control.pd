@@ -1,0 +1,34 @@
+#N canvas 617 281 806 530 10;
+#X declare -path ../ussstools;
+#X obj 493 10 declare -path ../ussstools;
+#X obj 40 128 usss.varispeed vari;
+#X obj 40 332 usss.output out;
+#X obj 332 342 s vari.speed;
+#X text 22 11 READ ME:;
+#X text 25 49 An example of using sends in PD to control elements of
+the ussstools. PLease begin by loading asoundfile into varispeed and
+as always ensuring DSP is on.;
+#X obj 332 179 metro 500;
+#X obj 332 149 tgl 20 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 332 207 random 4;
+#X obj 332 235 - 2;
+#X msg 332 265 \$1 600;
+#X obj 332 293 line;
+#X text 359 151 Go!;
+#X text 414 272 the line object generates a a smooth line as opposed
+to jumping values;
+#X text 416 327 Using s (a send) to the name of the slider we can use
+maths to control parts of the ussstools;
+#X text 417 168 Here the metro triggers a random number between 0 and
+4;
+#X text 415 221 some maths is used to map it to the correct range of
+the slider;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 6 0 8 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 3 0;

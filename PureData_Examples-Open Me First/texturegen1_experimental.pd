@@ -1,0 +1,36 @@
+#N canvas 21 246 1643 589 10;
+#X declare -path ../ussstools;
+#X declare -path E:/USSSTOOLSKIT/ussstools;
+#X obj 440 37 declare -path ../ussstools;
+#X text 11 58 select an audio file using the "select file" and begin
+playback using the play toggle;
+#X text 13 26 READ ME:;
+#X obj 443 13 declare -path E:/USSSTOOLSKIT/ussstools;
+#X obj 70 375 usss.output myout;
+#X obj 71 121 usss.texture myta;
+#X text 14 48 comment;
+#X text 373 175 makepoints is the number of points on the table that
+you want to use (from 0). Normally makepoints and numpoints will be
+equal.;
+#X msg 381 144 \; myta const \$1;
+#X msg 381 119 0;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array myta 55 float 1;
+#A 0 0.0857159 0.0928589 0.114288 0.121431 0.128574 0.135717 0.14286
+0.150003 0.157146 0.171432 0.178575 0.185718 0.200004 0.207147 0.210718
+0.214289 0.221432 0.235718 0.242861 0.246433 0.250004 0.257147 0.26429
+0.271433 0.285719 0.300005 0.307148 0.314291 0.321434 0.33572 0.342863
+0.342863 0.350006 0.364292 0.371435 0.378578 0.385721 0.400007 0.40715
+0.40715 0.414292 0.421435 0.421435 0.428578 0.428578 0.435721 0.435721
+0.442864 0.450007 0.45715 0.471436 0.478579 0.478579 0.478579 0.500008
+;
+#X coords 0 1 54 0 200 140 1 0 0;
+#X restore 381 238 graph;
+#X text 312 370 comment;
+#X text 314 336 comment;
+#X obj 283 394 usss.sfplay mysf;
+#X connect 5 0 4 0;
+#X connect 5 1 4 1;
+#X connect 9 0 8 0;
+#X connect 13 0 4 0;
+#X connect 13 1 4 1;

@@ -1,0 +1,23 @@
+#N canvas 0 50 450 300 10;
+#X obj 41 120 expr pow(2 \, ($f1-69)/12);
+#X floatatom 42 204 5 0 0 0 - - -, f 5;
+#X floatatom 41 94 5 0 0 0 - - -, f 5;
+#X obj 41 178 line;
+#X obj 40 148 pack 0 3000;
+#X floatatom 101 93 5 0 0 0 - - -, f 5;
+#X obj 42 232 s mygran.mainpitch;
+#X obj 44 58 f;
+#X floatatom 93 25 5 0 0 0 - - -, f 5;
+#X obj 41 25 t b b;
+#X obj 44 -2 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X connect 0 0 4 0;
+#X connect 1 0 6 0;
+#X connect 2 0 0 0;
+#X connect 3 0 1 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 1;
+#X connect 7 0 2 0;
+#X connect 8 0 7 1;
+#X connect 9 0 7 0;
+#X connect 10 0 9 0;

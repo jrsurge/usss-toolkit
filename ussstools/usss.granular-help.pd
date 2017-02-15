@@ -1,0 +1,20 @@
+#N canvas 538 209 822 474 10;
+#X obj 20 22 usss.granular mygran;
+#X obj 101 374 dac~;
+#X text 233 119 position in soundfile;
+#X text 229 25 inlets: stereo audio for real-time sampling;
+#X text 233 153 randomise read pointer;
+#X text 232 195 grains (normally 50 - 100 ms);
+#X text 232 227 pitch transp of grains (ratio);
+#X text 232 265 randomise (0 = no randomisation \, 4 = max);
+#X text 231 345 outlets: stereo audio;
+#X text 231 302 gain (set to 0.5 to begin);
+#X text 470 139 usss.granular is a granulation module that can either
+sample live input or a recorded audio file. Its various parameters
+are detailed to the left.;
+#X obj 578 43 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 578 87 \; pd dsp \$1;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 11 0 12 0;

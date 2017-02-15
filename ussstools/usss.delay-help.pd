@@ -1,0 +1,46 @@
+#N canvas 267 276 867 551 10;
+#X obj 18 33 usss.delay dly1;
+#X obj 19 -63 noise~;
+#X obj 19 325 *~ 0.1;
+#X obj 212 325 *~ 0.1;
+#X obj 101 374 dac~;
+#X obj 70 -24 line~;
+#X obj 18 -8 *~;
+#X msg 70 -60 1 \, 0 100;
+#X text 229 57 time: sets the delay time \, the time between echos
+;
+#X text 228 87 feedback: sets amount of signal that is fed back into
+the delay line causing repeats. If this number exceeds 1 then the feedback
+grows until the unit distorts.;
+#X text 230 133 level: this is the level of the delayed signal;
+#X text 231 153 crossfeedback: sets the amount of signal fed from left
+to right and vice-versa \, this will produce stereo 'ping pong' delay
+effects when given a single mono signal.;
+#X text 231 190 modfreq: sets the frequency of modulation of the delay
+time. It is used to produce chorus and flange type effects in conjunction
+with the moddepth.;
+#X text 232 232 moddepth: sets the amount of delay time modulation
+applied. see modfreq;
+#X text 126 -62 <- click me;
+#X obj -88 -64 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg -88 -20 \; pd dsp \$1;
+#X text 243 -88 usss.delay is a Modulating delay unit. Signal delay
+times are modulated by a sine wave There are two forms of feedback
+(Normal and Cross) The Normal feedback level determines the amount
+of signal sent back to the inputs. It is normal in terms of its stereo
+image. The left feeds back to the left and the right feeds back to
+the right. Cross feedback causes the left and right to be crossed over
+in the feedback stage. This can cause a bouncing between left and right.
+The modualtion stage causes the delay time to be warped giving chorus
+\, flange \, phasor like sounds. In the extreme you can here sound
+reversals and 'DJ scratching' effects.;
+#X connect 0 0 2 0;
+#X connect 0 1 3 0;
+#X connect 1 0 6 0;
+#X connect 2 0 4 0;
+#X connect 3 0 4 1;
+#X connect 5 0 6 1;
+#X connect 6 0 0 0;
+#X connect 7 0 5 0;
+#X connect 15 0 16 0;

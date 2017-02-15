@@ -1,0 +1,16 @@
+#N canvas 356 191 590 547 10;
+#X obj 104 238 usss.hp hipass;
+#X obj 180 370 dac~;
+#X obj 71 99 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 71 140 \; pd dsp \$1;
+#X text 132 113 A basic High-Pass filter module;
+#X obj 189 338 *~ 0.3;
+#X obj 186 191 noise~;
+#X connect 0 0 5 0;
+#X connect 0 1 5 0;
+#X connect 2 0 3 0;
+#X connect 5 0 1 0;
+#X connect 5 0 1 1;
+#X connect 6 0 0 0;
+#X connect 6 0 0 1;

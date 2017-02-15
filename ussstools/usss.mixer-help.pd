@@ -1,0 +1,23 @@
+#N canvas 356 191 590 547 10;
+#X obj 91 164 usss.mixer mix;
+#X obj 217 415 dac~;
+#X obj 90 87 osc~ 440;
+#X obj 153 87 osc~ 640;
+#X obj 218 87 osc~ 720;
+#X obj 282 86 osc~ 950;
+#X obj 347 179 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 347 233 \; pd dsp \$1;
+#X text 347 126 A Basic 4 Channel Mixer that sums;
+#X text 346 145 four stereo channels;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 2 0 0 0;
+#X connect 2 0 0 1;
+#X connect 3 0 0 2;
+#X connect 3 0 0 3;
+#X connect 4 0 0 4;
+#X connect 4 0 0 5;
+#X connect 5 0 0 6;
+#X connect 5 0 0 7;
+#X connect 6 0 7 0;

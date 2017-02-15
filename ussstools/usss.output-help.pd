@@ -1,0 +1,18 @@
+#N canvas 219 296 692 335 10;
+#X obj 22 95 usss.output out;
+#X obj 22 17 osc~ 220;
+#X obj 22 55 *~ 0.5;
+#X text 238 58 DSP can be toggled from the on off switch;
+#X text 236 35 A comprehensive four channel output object;
+#X text 237 83 RECORDING PROCEDURE:;
+#X text 241 106 To record first ensure DSP is ON. Then use the /tmp/sound.wav
+bang to select an output location ONLY THEN press "Record Start/Stop".
+After recording turn "record start/stop" off then you can disable DSP.
+;
+#X obj 584 14 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 584 58 \; pd dsp \$1;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 2 0 0 1;
+#X connect 7 0 8 0;

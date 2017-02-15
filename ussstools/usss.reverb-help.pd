@@ -1,0 +1,42 @@
+#N canvas 758 262 652 485 10;
+#X obj 50 142 usss.reverb myrev;
+#X obj 465 23 loadbang;
+#X obj 49 68 noise~;
+#X obj 113 40 metro 1000;
+#X obj 113 15 r turnon;
+#X msg 173 16 1;
+#X msg 204 18 0;
+#X obj 112 90 vline~;
+#X obj 50 102 *~;
+#X obj 51 361 dac~;
+#X msg 112 63 0.2 50 0 \, 0 50 100;
+#X text 265 141 reverb uses Freeverb (Steiner and Matthes \, 2005)
+;
+#X text 265 159 inlets (stereo) - audio;
+#X text 266 176 roomsize (0 - 1);
+#X text 267 206 damping (with roomsize affects reverb time. low damping
+= longer reverb - especially at high frequencies);
+#X text 268 244 panning of individual delays of reverb (towards 1 provides
+a much larger sense of space);
+#X text 266 276 wet = transformed;
+#X text 267 310 dry = original;
+#X text 267 335 freeze passes the original sound but freezes the reverb.
+;
+#X text 267 359 outlets (stereo audio);
+#X msg 465 53 \; turnon 1;
+#X obj 335 23 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 335 67 \; pd dsp \$1;
+#X connect 0 0 9 0;
+#X connect 0 1 9 1;
+#X connect 1 0 20 0;
+#X connect 2 0 8 0;
+#X connect 3 0 10 0;
+#X connect 4 0 3 0;
+#X connect 5 0 3 0;
+#X connect 6 0 3 0;
+#X connect 7 0 8 1;
+#X connect 8 0 0 0;
+#X connect 8 0 0 1;
+#X connect 10 0 7 0;
+#X connect 21 0 22 0;

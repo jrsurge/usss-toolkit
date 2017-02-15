@@ -1,0 +1,26 @@
+#N canvas 417 50 577 596 10;
+#X declare -path ../ussstools;
+#X obj 253 63 declare -path ../ussstools;
+#X obj 39 59 usss.sfplay mysf;
+#X obj 40 435 usss.output sfout;
+#X obj 39 210 usss.envelope myenv;
+#X obj 257 243 metro 1000;
+#X obj 257 218 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 257 268 send myenv.trigger;
+#X floatatom 314 219 5 0 0 0 - - -, f 5;
+#X obj 396 267 s myenv.total_time;
+#X obj 396 241 - 5;
+#X text 250 354 <<<< draw your envelope here;
+#X text 40 31 Page 42 Envelope;
+#X floatatom 414 219 5 0 0 0 - - -, f 5;
+#X connect 1 0 3 0;
+#X connect 1 1 3 1;
+#X connect 3 0 2 0;
+#X connect 3 1 2 1;
+#X connect 4 0 6 0;
+#X connect 5 0 4 0;
+#X connect 7 0 4 1;
+#X connect 7 0 9 0;
+#X connect 9 0 8 0;
+#X connect 12 0 9 1;
