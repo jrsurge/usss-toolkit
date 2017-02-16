@@ -1,0 +1,14 @@
+#N canvas 64 115 403 218 10;
+#X obj 23 20 notein;
+#X obj 23 96 pack f f f;
+#X obj 23 126 outlet voicenotevel;
+#X obj 23 73 - 1;
+#X text 120 21 Part of the usss.poly-synth system;
+#X obj 23 51 poly 16;
+#X connect 0 0 5 0;
+#X connect 0 1 5 1;
+#X connect 1 0 2 0;
+#X connect 3 0 1 0;
+#X connect 5 0 3 0;
+#X connect 5 1 1 1;
+#X connect 5 2 1 2;

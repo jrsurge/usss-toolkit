@@ -1,0 +1,12 @@
+#N canvas 1005 239 540 426 10;
+#X obj 63 69 usss.poly-notehandling;
+#X obj 62 358 outlet~;
+#X text 107 131 FM Synth;
+#X obj 109 157 usss.hslider \$1.ctom 0 20 2;
+#X obj 109 198 usss.hslider \$1.modIndex 0 20 4;
+#X obj 63 319 clone usss.poly-voice-fm 16;
+#X connect 0 0 5 0;
+#X connect 3 1 5 1;
+#X connect 4 1 5 2;
+#X connect 5 0 1 0;
+#X coords 0 -1 1 1 250 200 2 100 100;

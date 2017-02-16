@@ -1,0 +1,9 @@
+#N canvas 1005 239 540 426 10;
+#X obj 63 69 usss.poly-notehandling;
+#X text 107 131 Simple Synth;
+#X text 130 192 This synth has no controls;
+#X obj 63 319 clone usss.poly-voice-simple 16;
+#X obj 62 358 outlet~;
+#X connect 0 0 3 0;
+#X connect 3 0 4 0;
+#X coords 0 -1 1 1 250 200 2 100 100;

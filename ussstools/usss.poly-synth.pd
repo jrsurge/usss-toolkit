@@ -1,0 +1,8 @@
+#N canvas 699 242 650 516 10;
+#X text 27 18 Part of the usss.poly-synth system;
+#X obj 100 342 outlet~;
+#X obj 101 101 usss.poly-synth-\$1 \$2;
+#X obj 100 314 /~ 5;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X coords 0 -1 1 1 252 202 1 100 100;
